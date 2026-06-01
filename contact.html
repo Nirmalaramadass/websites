@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Get in Touch - SEO Pro</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta name="description" content="Get in touch with SEO Pro for a free consultation. Contact us via phone, email, or visit our office.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Emoji Icon Styles -->
+    <link rel="stylesheet" href="assets/css/image-icons.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0f172a',
+                        secondary: '#22c55e',
+                        accent: '#06b6d4'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body { font-family: 'Poppins', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%); }
+        .glass-card { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        [dir="rtl"] { direction: rtl; text-align: right; }
+        [dir="rtl"] .flex { flex-direction: row-reverse; }
+        
+        /* Floating Labels: center vertically, float above on focus/filled */
+        .floating-label {
+            position: relative;
+        }
+
+        .floating-label label {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%) scale(1);
+            transform-origin: left top;
+            transition: transform .18s ease, top .18s ease, color .18s ease, background-color .18s ease, padding .18s ease;
+            pointer-events: none;
+            padding: 0 .25rem;
+            color: #94a3b8;
+        }
+
+        .glass-card .floating-label label {
+            background-color: rgba(255,255,255,0.03);
+        }
+
+        html:not(.dark) .glass-card .floating-label label {
+            background-color: rgba(255,255,255,0.88);
+            color: #475569;
+        }
+
+        .floating-label input:focus ~ label,
+        .floating-label input:not(:placeholder-shown) ~ label,
+        .floating-label textarea:focus ~ label,
+        .floating-label textarea:not(:placeholder-shown) ~ label {
+            top: -0.5rem;
+            transform: translateY(0) scale(0.85);
+            color: #22c55e;
+            padding: 0 .35rem;
+        }
+    </style>
+    <style>
+        /* Navbar action buttons should match height across pages */
+        #navbar a[href="login.html"],
+        #navbar a[href="contact.html"],
+        #mobile-menu a[href="login.html"],
+        #mobile-menu a[href="contact.html"] {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 3rem;
+            height: 3rem;
+            line-height: 1;
+            box-sizing: border-box;
+            white-space: nowrap;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        /* Hero sections should use 600 weight, section headings should be more moderate */
+        .hero-section h1,
+        .hero-section h2,
+        .hero-section h3 {
+            font-weight: 600 !important;
+        }
+
+        section:not(.hero-section) h2,
+        section:not(.hero-section) h3 {
+            font-weight: 500 !important;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-primary text-gray-900 dark:text-white transition-all duration-300">
+    
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed top-0 w-full z-50 bg-white/80 dark:bg-primary/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center">
+                        <i class="fas fa-chart-line text-white text-xl"></i>
+                    </div>
+                    <span class="text-2xl font-bold bg-gradient-to-r from-secondary to-accent bg-clip-text text-transparent whitespace-nowrap">SEO Pro</span>
+                </div>
+                
+                <div class="hidden xl:flex items-center space-x-8 rtl:space-x-reverse ml-12 rtl:ml-0 rtl:mr-12">
+                    <div class="relative">
+                        <button type="button" class="nav-dropdown-toggle inline-flex items-center gap-2 hover:text-secondary transition-colors" data-dropdown="home-dropdown">
+                            Home <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div id="home-dropdown" class="nav-dropdown-menu hidden absolute top-full left-0 mt-3 w-44 rounded-lg bg-white dark:bg-primary border border-gray-200 dark:border-gray-700 shadow-xl p-2">
+                            <a href="index.html" class="block px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors whitespace-nowrap">Home 1</a>
+                            <a href="index2.html" class="block px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors whitespace-nowrap">Home 2</a>
+                        </div>
+                    </div>
+                    <a href="services.html" class="hover:text-secondary transition-colors">Services</a>
+                    <a href="about.html" class="hover:text-secondary transition-colors">About</a>
+                    <a href="case-studies.html" class="hover:text-secondary transition-colors whitespace-nowrap">Case Studies</a>
+                    <a href="pricing.html" class="hover:text-secondary transition-colors">Pricing</a>
+                    <a href="contact.html" class="text-secondary font-semibold hover:text-accent transition-colors">Contact</a>
+                    <div class="relative">
+                        <button type="button" class="nav-dropdown-toggle inline-flex items-center gap-2 hover:text-secondary transition-colors" data-dropdown="dashboard-dropdown">
+                            Dashboard <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div id="dashboard-dropdown" class="nav-dropdown-menu hidden absolute top-full left-0 mt-3 w-52 rounded-lg bg-white dark:bg-primary border border-gray-200 dark:border-gray-700 shadow-xl p-2">
+                            <a href="user-dashboard.html" class="block px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors whitespace-nowrap">User Dashboard</a>
+                            <a href="admin-dashboard.html" class="block px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors whitespace-nowrap">Admin Dashboard</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hidden xl:flex items-center gap-4 ms-8">
+                    <button id="rtl-toggle" class="p-2 h-10 w-12 rounded-lg glass-modern hover:bg-white/20 transition-all font-bold text-sm tracking-tighter" title="Switch to RTL" aria-label="Toggle RTL/LTR">
+                        RTL
+                    </button>
+                    <a href="login.html" class="px-6 py-2 rounded-lg border-2 border-secondary text-secondary hover:bg-secondary hover:text-white transition-all font-semibold">Login</a>
+                    <a href="contact.html" class="px-6 py-2 rounded-lg bg-gradient-to-r from-secondary to-accent text-white hover:shadow-lg hover:shadow-secondary/50 transition-all font-semibold whitespace-nowrap">Get Started</a>
+                </div>
+                
+                <button id="menu-btn" class="xl:hidden p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition-all">
+                    <div class="w-6 h-5 relative">
+                        <span class="bar absolute w-full h-0.5 bg-current top-0 left-0 transition-all"></span>
+                        <span class="bar absolute w-full h-0.5 bg-current top-1/2 left-0 transition-all"></span>
+                        <span class="bar absolute w-full h-0.5 bg-current bottom-0 left-0 transition-all"></span>
+                    </div>
+                </button>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden xl:hidden bg-white dark:bg-primary border-t border-gray-200 dark:border-gray-800">
+            <div class="px-4 py-4 space-y-4">
+                <details class="group">
+                    <summary class="list-none flex items-center justify-between cursor-pointer hover:text-secondary">
+                        Home
+                        <i class="fas fa-chevron-down text-xs"></i>
+                    </summary>
+                    <div class="mt-2 ml-4 space-y-2">
+                        <a href="index.html" class="block hover:text-secondary">Home 1</a>
+                        <a href="index2.html" class="block hover:text-secondary">Home 2</a>
+                    </div>
+                </details>
+                <a href="services.html" class="block hover:text-secondary">Services</a>
+                <a href="about.html" class="block hover:text-secondary">About</a>
+                <a href="case-studies.html" class="block hover:text-secondary">Case Studies</a>
+                <a href="pricing.html" class="block hover:text-secondary">Pricing</a>
+                <a href="contact.html" class="block text-secondary font-semibold">Contact</a>
+                <details class="group">
+                    <summary class="list-none flex items-center justify-between cursor-pointer hover:text-secondary">
+                        Dashboard
+                        <i class="fas fa-chevron-down text-xs"></i>
+                    </summary>
+                    <div class="mt-2 ml-4 space-y-2">
+                        <a href="user-dashboard.html" class="block hover:text-secondary">User Dashboard</a>
+                        <a href="admin-dashboard.html" class="block hover:text-secondary">Admin Dashboard</a>
+                    </div>
+                </details>
+                <div class="pt-4 border-t border-gray-200 dark:border-gray-800 space-y-3">
+                    <button id="rtl-toggle-mobile" class="w-full p-3 rounded-xl glass-modern text-center font-bold">
+                        RTL/LTR Mode
+                    </button>
+                    <a href="login.html" class="block w-full px-6 py-2 rounded-lg border-2 border-secondary text-secondary text-center">Login</a>
+                    <a href="contact.html" class="block w-full px-6 py-2 rounded-lg bg-gradient-to-r from-secondary to-accent text-white text-center whitespace-nowrap">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Page Header -->
+    <section class="relative gradient-bg pt-32 pb-20 overflow-hidden">
+        <!-- Animated Background Particles -->
+        <canvas id="hero-particles"></canvas>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-5xl lg:text-6xl font-bold mb-6 text-white animate-on-scroll">
+                Get In <span class="text-secondary">Touch</span>
+            </h1>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto animate-on-scroll">
+                Ready to boost your rankings? Let's talk about your SEO strategy
+            </p>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section class="py-20 bg-white dark:bg-primary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div class="animate-on-scroll">
+                    <h2 class="text-3xl font-bold mb-6">Send Us a Message</h2>
+                    <form id="contact-form" class="space-y-6" onsubmit="return validateForm('contact-form')">
+                        <div class="floating-label">
+                            <input type="text" id="name" name="name" required placeholder=" " 
+                                class="w-full px-4 py-4 rounded-xl border-2 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 focus:border-secondary focus:outline-none transition-colors peer">
+                            <label for="name" class="absolute left-4 top-4 text-gray-500 transition-all cursor-text">
+                                Your Name *
+                            </label>
+                        </div>
+                        
+                        <div class="floating-label">
+                            <input type="email" id="email" name="email" required placeholder=" " 
+                                class="w-full px-4 py-4 rounded-xl border-2 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 focus:border-secondary focus:outline-none transition-colors peer">
+                            <label for="email" class="absolute left-4 top-4 text-gray-500 transition-all cursor-text">
+                                Email Address *
+                            </label>
+                        </div>
+                        
+                        <div class="floating-label">
+                            <input type="tel" id="phone" name="phone" placeholder=" " 
+                                class="w-full px-4 py-4 rounded-xl border-2 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 focus:border-secondary focus:outline-none transition-colors peer">
+                            <label for="phone" class="absolute left-4 top-4 text-gray-500 transition-all cursor-text">
+                                Phone Number
+                            </label>
+                        </div>
+                        
+                        <div class="floating-label">
+                            <select id="service" name="service" required 
+                                class="w-full px-4 py-4 rounded-xl border-2 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 focus:border-secondary focus:outline-none transition-colors">
+                                <option value="" disabled selected>Select a Service *</option>
+                                <option value="on-page">On-Page SEO</option>
+                                <option value="off-page">Off-Page SEO</option>
+                                <option value="technical">Technical SEO</option>
+                                <option value="local">Local SEO</option>
+                                <option value="ecommerce">E-commerce SEO</option>
+                                <option value="audit">SEO Audit</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="floating-label">
+                            <textarea id="message" name="message" rows="5" required placeholder=" " 
+                                class="w-full px-4 py-4 rounded-xl border-2 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 focus:border-secondary focus:outline-none transition-colors peer resize-none"></textarea>
+                            <label for="message" class="absolute left-4 top-4 text-gray-500 transition-all cursor-text">
+                                Your Message *
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="w-full px-8 py-4 rounded-xl bg-gradient-to-r from-secondary to-accent text-white font-semibold text-lg hover:shadow-2xl hover:shadow-secondary/50 transition-all transform hover:scale-105">
+                            <i class="fas fa-paper-plane me-2"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Contact Information -->
+                <div class="animate-on-scroll">
+                    <h2 class="text-3xl font-bold mb-6">Contact Information</h2>
+                    
+                    <div class="space-y-6 mb-8">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-secondary/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-map-marker-alt text-2xl text-secondary"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg mb-1">Our Office</h3>
+                                <p class="text-gray-600 dark:text-gray-400">123 SEO Street, Digital City, DC 12345</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-accent/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-phone text-2xl text-accent"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg mb-1">Phone</h3>
+                                <p class="text-gray-600 dark:text-gray-400">+1 (234) 567-890</p>
+                                <p class="text-sm text-gray-500">Mon - Fri: 9:00 AM - 6:00 PM</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-secondary/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-envelope text-2xl text-secondary"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg mb-1">Email</h3>
+                                <p class="text-gray-600 dark:text-gray-400">hello@seopro.com</p>
+                                <p class="text-sm text-gray-500">We'll respond within 24 hours</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Media Icons -->
+                    <div class="mb-8">
+                        <h3 class="font-semibold text-lg mb-4">Follow Us</h3>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-12 h-12 rounded-xl bg-gray-100 dark:bg-gray-800 flex items-center justify-center hover:bg-secondary hover:text-white transition-all transform hover:scale-110">
+                                <i class="fab fa-facebook-f text-xl"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 rounded-xl bg-gray-100 dark:bg-gray-800 flex items-center justify-center hover:bg-secondary hover:text-white transition-all transform hover:scale-110">
+                                <i class="fab fa-twitter text-xl"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 rounded-xl bg-gray-100 dark:bg-gray-800 flex items-center justify-center hover:bg-secondary hover:text-white transition-all transform hover:scale-110">
+                                <i class="fab fa-linkedin-in text-xl"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 rounded-xl bg-gray-100 dark:bg-gray-800 flex items-center justify-center hover:bg-secondary hover:text-white transition-all transform hover:scale-110">
+                                <i class="fab fa-instagram text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Google Maps Embed -->
+                    <div class="rounded-2xl overflow-hidden shadow-2xl">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.1422937950147!2d-73.98731968459391!3d40.74844097932847!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a163!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1635959545214!5m2!1sen!2sus" 
+                            width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" class="w-full"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section class="py-20 bg-gray-50 dark:bg-gray-900">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-4xl lg:text-5xl font-bold mb-4">
+                    Frequently Asked <span class="text-accent">Questions</span>
+                </h2>
+                <p class="text-xl text-gray-600 dark:text-gray-400">Quick answers to common questions</p>
+            </div>
+            
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <details class="group bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg animate-on-scroll">
+                    <summary class="list-none cursor-pointer flex items-center justify-between gap-4">
+                        <span class="text-xl font-bold flex items-center">
+                            <i class="fas fa-question-circle text-secondary me-3"></i>
+                            How much does SEO cost?
+                        </span>
+                        <i class="fas fa-chevron-down text-sm text-gray-500"></i>
+                    </summary>
+                    <p class="text-gray-600 dark:text-gray-400 mt-3 ms-8">
+                        SEO pricing varies based on your needs. We offer customized packages starting from $999/month. Contact us for a personalized quote based on your specific requirements.
+                    </p>
+                </details>
+                
+                <!-- FAQ Item 2 -->
+                <details class="group bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg animate-on-scroll">
+                    <summary class="list-none cursor-pointer flex items-center justify-between gap-4">
+                        <span class="text-xl font-bold flex items-center">
+                            <i class="fas fa-question-circle text-secondary me-3"></i>
+                            How long does it take to see results?
+                        </span>
+                        <i class="fas fa-chevron-down text-sm text-gray-500"></i>
+                    </summary>
+                    <p class="text-gray-600 dark:text-gray-400 mt-3 ms-8">
+                        Most clients see noticeable improvements within 3-6 months. However, this depends on competition, current website state, and the strategies implemented.
+                    </p>
+                </details>
+                
+                <!-- FAQ Item 3 -->
+                <details class="group bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg animate-on-scroll">
+                    <summary class="list-none cursor-pointer flex items-center justify-between gap-4">
+                        <span class="text-xl font-bold flex items-center">
+                            <i class="fas fa-question-circle text-secondary me-3"></i>
+                            Do you offer free consultations?
+                        </span>
+                        <i class="fas fa-chevron-down text-sm text-gray-500"></i>
+                    </summary>
+                    <p class="text-gray-600 dark:text-gray-400 mt-3 ms-8">
+                        Yes! We offer a free 30-minute consultation and a complimentary SEO audit worth $500 to help you understand your current positioning and opportunities.
+                    </p>
+                </details>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <div>
+                    <div class="flex items-center space-x-2 mb-6">
+                        <div class="w-10 h-10 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center">
+                            <i class="fas fa-chart-line text-white text-xl"></i>
+                        </div>
+                        <span class="text-2xl font-bold">SEO Pro</span>
+                    </div>
+                    <p class="text-gray-400 mb-6">Professional SEO services to help your business grow online.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-secondary transition-colors"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-secondary transition-colors"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-secondary transition-colors"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-secondary transition-colors"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="about.html" class="text-gray-400 hover:text-secondary transition-colors">About Us</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-secondary transition-colors">Services</a></li>
+                        <li><a href="case-studies.html" class="text-gray-400 hover:text-secondary transition-colors">Case Studies</a></li>
+                        <li><a href="pricing.html" class="text-gray-400 hover:text-secondary transition-colors">Pricing</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-secondary transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Services</h3>
+                    <ul class="space-y-3">
+                        <li><a href="services.html" class="text-gray-400 hover:text-secondary transition-colors">On-Page SEO</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-secondary transition-colors">Off-Page SEO</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-secondary transition-colors">Technical SEO</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-secondary transition-colors">Local SEO</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-secondary transition-colors">E-commerce SEO</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Contact Us</h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-start space-x-3"><i class="fas fa-map-marker-alt mt-1"></i><span>123 SEO Street, Digital City, DC 12345</span></li>
+                        <li class="flex items-center space-x-3"><i class="fas fa-phone"></i><span>+1 (234) 567-890</span></li>
+                        <li class="flex items-center space-x-3"><i class="fas fa-envelope"></i><span>hello@seopro.com</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">&copy; 2026 SEO Pro. All rights reserved.</p>
+                <div class="flex space-x-6 text-sm">
+                    <a href="#" class="text-gray-400 hover:text-secondary transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-secondary transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Form validation
+        function validateForm(formId) {
+            const form = document.getElementById(formId);
+            if (!validateForm(formId)) {
+                alert('Please fill in all required fields correctly.');
+                return false;
+            }
+            
+            // Show success message
+            alert('Thank you for your message! We will get back to you within 24 hours.');
+            form.reset();
+            return false; // Prevent actual submission
+        }
+    </script>
+</body>
+</html>

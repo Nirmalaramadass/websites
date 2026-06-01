@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - SEO Pro</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta name="description" content="Create your SEO Pro account">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/css/image-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0f172a',
+                        secondary: '#22c55e',
+                        accent: '#06b6d4'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .floating-label {
+            position: relative;
+        }
+
+        .floating-label label {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%) scale(1);
+            transform-origin: left top;
+            transition: transform .18s ease, top .18s ease, color .18s ease, background-color .18s ease, padding .18s ease;
+            pointer-events: none;
+            padding: 0 .25rem;
+            color: #94a3b8;
+        }
+
+        .glass-card .floating-label label {
+            background-color: rgba(255, 255, 255, 0.03);
+        }
+
+        html:not(.dark) .glass-card .floating-label label {
+            background-color: rgba(255, 255, 255, 0.88);
+            color: #475569;
+        }
+
+        .floating-label input:focus~label,
+        .floating-label input:not(:placeholder-shown)~label,
+        .floating-label select:focus~label,
+        .floating-label select:not([value=""])~label {
+            top: -0.5rem;
+            transform: translateY(0) scale(0.85);
+            color: #22c55e;
+            padding: 0 .35rem;
+        }
+
+        body,
+        .glass-card,
+        input,
+        select,
+        button,
+        a {
+            transition: background-color .3s ease, color .3s ease, border-color .3s ease, box-shadow .3s ease;
+        }
+
+        html:not(.dark) body {
+            background: linear-gradient(135deg, #f8fafc 0%, #dbeafe 50%, #f8fafc 100%);
+        }
+
+        html:not(.dark) .glass-card {
+            background: rgba(255, 255, 255, 0.88);
+            border-color: rgba(148, 163, 184, 0.35);
+        }
+
+        html:not(.dark) .text-white {
+            color: #0f172a !important;
+        }
+
+        html:not(.dark) .text-gray-300 {
+            color: #334155 !important;
+        }
+
+        html:not(.dark) .text-gray-400 {
+            color: #475569 !important;
+        }
+
+        html:not(.dark) .bg-white\/10 {
+            background-color: rgba(255, 255, 255, 0.84) !important;
+        }
+
+        html:not(.dark) .border-gray-600 {
+            border-color: rgba(148, 163, 184, 0.6) !important;
+        }
+
+        html:not(.dark) input,
+        html:not(.dark) select {
+            color: #0f172a !important;
+        }
+
+        html:not(.dark) .bg-gradient-to-r.text-white,
+        html:not(.dark) .bg-gradient-to-br.text-white,
+        html:not(.dark) .bg-gradient-to-r .text-white,
+        html:not(.dark) .bg-gradient-to-br .text-white {
+            color: #ffffff !important;
+        }
+
+        /* RTL Support */
+        [dir="rtl"] { direction: rtl; text-align: right; }
+
+        [dir="rtl"] .floating-label label {
+            left: auto;
+            right: 1rem;
+            transform-origin: right top;
+            text-align: right;
+        }
+
+        /* RTL: move eye toggle button from right to left */
+        [dir="rtl"] .floating-label button[onclick*="togglePassword"] {
+            right: auto;
+            left: 1rem;
+        }
+
+        /* RTL: swap input padding so text doesn't overlap eye icon */
+        [dir="rtl"] .floating-label input[type="password"] {
+            padding-right: 1rem;
+            padding-left: 3rem;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex items-center justify-center p-4">
+    <div class="fixed inset-0 overflow-hidden pointer-events-none">
+        <canvas id="hero-particles"></canvas>
+    </div>
+
+    <div class="w-full max-w-lg relative z-10">
+        <div class="text-center mb-8">
+            <div class="inline-flex items-center gap-2">
+                <div
+                    class="w-12 h-12 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center">
+                    <i class="fas fa-chart-line text-white text-2xl"></i>
+                </div>
+                <span class="text-3xl font-bold bg-gradient-to-r from-secondary to-accent bg-clip-text text-transparent whitespace-nowrap">SEO Pro</span>
+            </div>
+        </div>
+
+        <div class="glass-card rounded-3xl p-8 shadow-2xl">
+            <h1 class="text-3xl font-bold text-white text-center mb-2">Create Account</h1>
+            <p class="text-center text-gray-300 mb-8">Get started with your SEO Pro dashboard</p>
+
+            <form class="space-y-6" onsubmit="handleRegister(event)">
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div class="floating-label">
+                        <input type="text" id="first-name" required placeholder=" "
+                            class="w-full px-4 py-4 rounded-xl border-2 border-gray-600 bg-white/10 text-white focus:border-secondary focus:outline-none transition-colors">
+                        <label for="first-name"
+                            class="absolute left-4 top-4 text-gray-400 transition-all cursor-text">First Name</label>
+                    </div>
+                    <div class="floating-label">
+                        <input type="text" id="last-name" required placeholder=" "
+                            class="w-full px-4 py-4 rounded-xl border-2 border-gray-600 bg-white/10 text-white focus:border-secondary focus:outline-none transition-colors">
+                        <label for="last-name"
+                            class="absolute left-4 top-4 text-gray-400 transition-all cursor-text">Last Name</label>
+                    </div>
+                </div>
+
+                <div class="floating-label">
+                    <input type="email" id="email" required placeholder=" "
+                        class="w-full px-4 py-4 rounded-xl border-2 border-gray-600 bg-white/10 text-white focus:border-secondary focus:outline-none transition-colors">
+                    <label for="email" class="absolute left-4 top-4 text-gray-400 transition-all cursor-text">Email
+                        Address</label>
+                </div>
+
+                <div class="floating-label">
+                    <select id="account-role" required
+                        class="w-full px-4 py-4 rounded-xl border-2 border-gray-600 bg-white/10 text-white focus:border-secondary focus:outline-none transition-colors">
+                        <option value="" selected disabled>Select Account Type</option>
+                        <option value="user" class="text-gray-900">User Account</option>
+                        <option value="admin" class="text-gray-900">Admin Account</option>
+                    </select>
+                </div>
+
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div class="floating-label relative">
+                        <input type="password" id="password" required placeholder=" "
+                            class="w-full px-4 py-4 rounded-xl border-2 border-gray-600 bg-white/10 text-white focus:border-secondary focus:outline-none transition-colors">
+                        <label for="password"
+                            class="absolute left-4 top-4 text-gray-400 transition-all cursor-text">Password</label>
+                        <button type="button" onclick="togglePassword('password', 'password-eye')"
+                            class="absolute right-4 top-4 text-gray-400 hover:text-white transition-colors">
+                            <i id="password-eye" class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <div class="floating-label relative">
+                        <input type="password" id="confirm-password" required placeholder=" "
+                            class="w-full px-4 py-4 rounded-xl border-2 border-gray-600 bg-white/10 text-white focus:border-secondary focus:outline-none transition-colors">
+                        <label for="confirm-password"
+                            class="absolute left-4 top-4 text-gray-400 transition-all cursor-text">Confirm
+                            Password</label>
+                        <button type="button" onclick="togglePassword('confirm-password', 'confirm-password-eye')"
+                            class="absolute right-4 top-4 text-gray-400 hover:text-white transition-colors">
+                            <i id="confirm-password-eye" class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <label class="flex items-start text-sm text-gray-300 cursor-pointer gap-3">
+                    <input type="checkbox" id="terms" required
+                        class="mt-1 w-4 h-4 rounded border-gray-600 bg-white/10 text-secondary focus:ring-secondary">
+                    <span>I agree to the Terms of Service and Privacy Policy.</span>
+                </label>
+
+                <button type="submit"
+                    class="w-full px-8 py-4 rounded-xl bg-gradient-to-r from-secondary to-accent text-white font-semibold text-lg hover:shadow-2xl hover:shadow-secondary/50 transition-all transform hover:scale-105">
+                    <i class="fas fa-user-plus mr-2"></i> Create Account
+                </button>
+            </form>
+
+            <p class="text-center text-gray-400 text-sm mt-6">
+                Already have an account?
+                <a href="login.html" class="text-secondary hover:text-accent transition-colors font-semibold">Login</a>
+            </p>
+        </div>
+
+
+    </div>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        function togglePassword(inputId, iconId) {
+            const input = document.getElementById(inputId);
+            const icon = document.getElementById(iconId);
+
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                input.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        }
+
+        function handleRegister(event) {
+            event.preventDefault();
+
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            const role = document.getElementById('account-role').value;
+
+            if (password !== confirmPassword) {
+                alert('Passwords do not match.');
+                return;
+            }
+
+            alert('Registration successful! Redirecting to login...');
+
+            if (role === 'admin') {
+                window.location.href = 'login.html';
+            } else {
+                window.location.href = 'login.html';
+            }
+        }
+    </script>
+</body>
+
+</html>

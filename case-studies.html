@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Studies | SEO Success Stories - SEO Pro</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta name="description"
+        content="Real SEO success stories from our clients. See before and after results, traffic growth, and ROI.">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Emoji Icon Styles -->
+    <link rel="stylesheet" href="assets/css/image-icons.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0f172a',
+                        secondary: '#22c55e',
+                        accent: '#06b6d4'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        [dir="rtl"] {
+            direction: rtl;
+            text-align: right;
+        }
+
+        [dir="rtl"] .flex {
+            flex-direction: row-reverse;
+        }
+    </style>
+    <style>
+        /* Navbar action buttons should match height across pages */
+        #navbar a[href="login.html"],
+        #navbar a[href="contact.html"],
+        #mobile-menu a[href="login.html"],
+        #mobile-menu a[href="contact.html"] {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 3rem;
+            height: 3rem;
+            line-height: 1;
+            box-sizing: border-box;
+            white-space: nowrap;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        /* Hero sections should use 600 weight, section headings should be more moderate */
+        .hero-section h1,
+        .hero-section h2,
+        .hero-section h3 {
+            font-weight: 600 !important;
+        }
+
+        section:not(.hero-section) h2,
+        section:not(.hero-section) h3 {
+            font-weight: 500 !important;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 dark:bg-primary text-gray-900 dark:text-white transition-all duration-300">
+
+    <!-- Navbar -->
+    <nav id="navbar"
+        class="fixed top-0 w-full z-50 bg-white/80 dark:bg-primary/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center space-x-2">
+                    <div
+                        class="w-10 h-10 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center">
+                        <i class="fas fa-chart-line text-white text-xl"></i>
+                    </div>
+                    <span
+                        class="text-2xl font-bold bg-gradient-to-r from-secondary to-accent bg-clip-text text-transparent whitespace-nowrap">SEO
+                        Pro</span>
+                </div>
+
+                <div class="hidden xl:flex items-center space-x-8 rtl:space-x-reverse ml-12 rtl:ml-0 rtl:mr-12">
+                    <div class="relative">
+                        <button type="button"
+                            class="nav-dropdown-toggle inline-flex items-center gap-2 hover:text-secondary transition-colors"
+                            data-dropdown="home-dropdown">
+                            Home <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div id="home-dropdown"
+                            class="nav-dropdown-menu hidden absolute top-full left-0 mt-3 w-44 rounded-lg bg-white dark:bg-primary border border-gray-200 dark:border-gray-700 shadow-xl p-2">
+                            <a href="index.html"
+                                class="block px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors whitespace-nowrap">Home
+                                1</a>
+                            <a href="index2.html"
+                                class="block px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors whitespace-nowrap">Home
+                                2</a>
+                        </div>
+                    </div>
+                    <a href="services.html" class="hover:text-secondary transition-colors">Services</a>
+                    <a href="about.html" class="hover:text-secondary transition-colors">About</a>
+                    <a href="case-studies.html"
+                        class="text-secondary font-semibold hover:text-accent transition-colors whitespace-nowrap">Case
+                        Studies</a>
+                    <a href="pricing.html" class="hover:text-secondary transition-colors">Pricing</a>
+                    <a href="contact.html" class="hover:text-secondary transition-colors">Contact</a>
+                    <div class="relative">
+                        <button type="button"
+                            class="nav-dropdown-toggle inline-flex items-center gap-2 hover:text-secondary transition-colors"
+                            data-dropdown="dashboard-dropdown">
+                            Dashboard <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div id="dashboard-dropdown"
+                            class="nav-dropdown-menu hidden absolute top-full left-0 mt-3 w-52 rounded-lg bg-white dark:bg-primary border border-gray-200 dark:border-gray-700 shadow-xl p-2">
+                            <a href="user-dashboard.html"
+                                class="block px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors whitespace-nowrap">User
+                                Dashboard</a>
+                            <a href="admin-dashboard.html"
+                                class="block px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors whitespace-nowrap">Admin
+                                Dashboard</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hidden xl:flex items-center gap-4 ms-8">
+                    <button id="rtl-toggle"
+                        class="p-2 h-10 w-12 rounded-lg glass-modern hover:bg-white/20 transition-all font-bold text-sm tracking-tighter"
+                        title="Switch to RTL" aria-label="Toggle RTL/LTR">
+                        RTL
+                    </button>
+                    <a href="login.html"
+                        class="px-6 py-2 rounded-lg border-2 border-secondary text-secondary hover:bg-secondary hover:text-white transition-all font-semibold">Login</a>
+                    <a href="contact.html"
+                        class="px-6 py-2 rounded-lg bg-gradient-to-r from-secondary to-accent text-white hover:shadow-lg hover:shadow-secondary/50 transition-all font-semibold whitespace-nowrap">Get
+                        Started</a>
+                </div>
+
+                <button id="menu-btn"
+                    class="xl:hidden p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition-all">
+                    <div class="w-6 h-5 relative">
+                        <span class="bar absolute w-full h-0.5 bg-current top-0 left-0 transition-all"></span>
+                        <span class="bar absolute w-full h-0.5 bg-current top-1/2 left-0 transition-all"></span>
+                        <span class="bar absolute w-full h-0.5 bg-current bottom-0 left-0 transition-all"></span>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu"
+            class="hidden xl:hidden bg-white dark:bg-primary border-t border-gray-200 dark:border-gray-800">
+            <div class="px-4 py-4 space-y-4">
+                <details class="group">
+                    <summary class="list-none flex items-center justify-between cursor-pointer hover:text-secondary">
+                        Home
+                        <i class="fas fa-chevron-down text-xs"></i>
+                    </summary>
+                    <div class="mt-2 ml-4 space-y-2">
+                        <a href="index.html" class="block hover:text-secondary">Home 1</a>
+                        <a href="index2.html" class="block hover:text-secondary">Home 2</a>
+                    </div>
+                </details>
+                <a href="services.html" class="block hover:text-secondary">Services</a>
+                <a href="about.html" class="block hover:text-secondary">About</a>
+                <a href="case-studies.html" class="block text-secondary font-semibold">Case Studies</a>
+                <a href="pricing.html" class="block hover:text-secondary">Pricing</a>
+                <a href="contact.html" class="block hover:text-secondary">Contact</a>
+                <details class="group">
+                    <summary class="list-none flex items-center justify-between cursor-pointer hover:text-secondary">
+                        Dashboard
+                        <i class="fas fa-chevron-down text-xs"></i>
+                    </summary>
+                    <div class="mt-2 ml-4 space-y-2">
+                        <a href="user-dashboard.html" class="block hover:text-secondary">User Dashboard</a>
+                        <a href="admin-dashboard.html" class="block hover:text-secondary">Admin Dashboard</a>
+                    </div>
+                </details>
+                <div class="pt-4 border-t border-gray-200 dark:border-gray-800 space-y-3">
+                    <button id="rtl-toggle-mobile" class="w-full p-3 rounded-xl glass-modern text-center font-bold">
+                        RTL/LTR Mode
+                    </button>
+                    <a href="login.html"
+                        class="block w-full px-6 py-2 rounded-lg border-2 border-secondary text-secondary text-center">Login</a>
+                    <a href="contact.html"
+                        class="block w-full px-6 py-2 rounded-lg bg-gradient-to-r from-secondary to-accent text-white text-center whitespace-nowrap">Get
+                        Started</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="relative gradient-bg pt-32 pb-20 overflow-hidden">
+        <!-- Animated Background Particles -->
+        <canvas id="hero-particles"></canvas>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-5xl lg:text-6xl font-bold mb-6 text-white animate-on-scroll">
+                Success <span class="text-accent">Stories</span>
+            </h1>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto animate-on-scroll">
+                Real results from real businesses. See how we've helped companies dominate search rankings.
+            </p>
+        </div>
+    </section>
+
+    <!-- Case Studies Grid -->
+    <section class="py-20 bg-white dark:bg-primary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid gap-12">
+
+                <!-- Case Study 1 -->
+                <div class="bg-gray-50 dark:bg-gray-800 rounded-3xl overflow-hidden shadow-2xl animate-on-scroll">
+                    <div class="grid lg:grid-cols-2">
+                        <div class="h-48 lg:h-full overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop"
+                                alt="TechGear E-commerce"
+                                class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="p-8 lg:p-12">
+                            <div class="flex items-center mb-4">
+                                <span
+                                    class="px-4 py-2 bg-secondary/20 text-secondary rounded-full text-sm font-semibold">E-commerce</span>
+                                <span class="ms-4 text-gray-500"><i class="fas fa-calendar me-2"></i>8 Months
+                                    Campaign</span>
+                            </div>
+                            <h2 class="text-3xl lg:text-4xl font-bold mb-4">TechGear E-commerce SEO Transformation</h2>
+                            <p class="text-gray-600 dark:text-gray-400 mb-6">
+                                TechGear, an online electronics retailer, struggled with low organic visibility despite
+                                having quality products. Our comprehensive SEO strategy transformed their online
+                                presence.
+                            </p>
+
+                            <div class="grid grid-cols-3 gap-2 sm:gap-4 mb-6">
+                                <div class="text-center p-2 sm:p-4 bg-green-50 dark:bg-green-900/20 rounded-xl">
+                                    <div class="text-xl sm:text-2xl lg:text-3xl font-bold text-secondary mb-1 whitespace-nowrap">+450%</div>
+                                    <div class="text-[10px] sm:text-xs text-gray-600 dark:text-gray-400">Traffic Growth</div>
+                                </div>
+                                <div class="text-center p-2 sm:p-4 bg-cyan-50 dark:bg-cyan-900/20 rounded-xl">
+                                    <div class="text-xl sm:text-2xl lg:text-3xl font-bold text-accent mb-1 whitespace-nowrap">Top 3</div>
+                                    <div class="text-[10px] sm:text-xs text-gray-600 dark:text-gray-400">Avg. Position</div>
+                                </div>
+                                <div class="text-center p-2 sm:p-4 bg-purple-50 dark:bg-purple-900/20 rounded-xl">
+                                    <div class="text-xl sm:text-2xl lg:text-3xl font-bold text-purple-500 mb-1 whitespace-nowrap">$2.3M</div>
+                                    <div class="text-[10px] sm:text-xs text-gray-600 dark:text-gray-400">Revenue Increase</div>
+                                </div>
+                            </div>
+
+                            <div class="mb-6">
+                                <h3 class="font-semibold mb-3">Key Achievements:</h3>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-secondary me-2 mt-1"></i>
+                                        <span>Ranked #1 for 50+ high-value product keywords</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-secondary me-2 mt-1"></i>
+                                        <span>Increased organic conversions by 380%</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-secondary me-2 mt-1"></i>
+                                        <span>Achieved 10x ROI within first year</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <blockquote
+                                class="border-s-4 border-secondary ps-4 italic text-gray-700 dark:text-gray-300 mb-6">
+                                "SEO Pro transformed our business. We went from struggling to get noticed to dominating
+                                our market. The ROI has been incredible!"
+                                <footer class="text-sm text-gray-500 mt-2 not-italic">— David Chen, CEO TechGear
+                                </footer>
+                            </blockquote>
+
+                            <a href="contact.html"
+                                class="inline-block px-6 py-3 rounded-xl bg-gradient-to-r from-secondary to-accent text-white font-semibold hover:shadow-lg transition-all">
+                                Get Similar Results
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case Study 2 -->
+                <div class="bg-gray-50 dark:bg-gray-800 rounded-3xl overflow-hidden shadow-2xl animate-on-scroll">
+                    <div class="grid lg:grid-cols-2">
+                        <div class="order-2 lg:order-1 p-8 lg:p-12">
+                            <div class="flex items-center mb-4">
+                                <span
+                                    class="px-4 py-2 bg-accent/20 text-accent rounded-full text-sm font-semibold">SaaS</span>
+                                <span class="ms-4 text-gray-500"><i class="fas fa-calendar me-2"></i>12 Months
+                                    Campaign</span>
+                            </div>
+                            <h2 class="text-3xl lg:text-4xl font-bold mb-4">CloudSoft SaaS Lead Generation</h2>
+                            <p class="text-gray-600 dark:text-gray-400 mb-6">
+                                CloudSoft, a B2B project management software company, needed to increase qualified leads
+                                and establish thought leadership in a competitive market.
+                            </p>
+
+                            <div class="grid grid-cols-3 gap-2 sm:gap-4 mb-6">
+                                <div class="text-center p-2 sm:p-4 bg-green-50 dark:bg-green-900/20 rounded-xl">
+                                    <div class="text-xl sm:text-2xl lg:text-3xl font-bold text-accent mb-1 whitespace-nowrap">+600%</div>
+                                    <div class="text-[10px] sm:text-xs text-gray-600 dark:text-gray-400">Lead Growth</div>
+                                </div>
+                                <div class="text-center p-2 sm:p-4 bg-cyan-50 dark:bg-cyan-900/20 rounded-xl">
+                                    <div class="text-xl sm:text-2xl lg:text-3xl font-bold text-secondary mb-1 whitespace-nowrap">#1</div>
+                                    <div class="text-[10px] sm:text-xs text-gray-600 dark:text-gray-400">Ranking Achieved</div>
+                                </div>
+                                <div class="text-center p-2 sm:p-4 bg-purple-50 dark:bg-purple-900/20 rounded-xl">
+                                    <div class="text-xl sm:text-2xl lg:text-3xl font-bold text-purple-500 mb-1 whitespace-nowrap">10x</div>
+                                    <div class="text-[10px] sm:text-xs text-gray-600 dark:text-gray-400">ROI Delivered</div>
+                                </div>
+                            </div>
+
+                            <div class="mb-6">
+                                <h3 class="font-semibold mb-3">Key Achievements:</h3>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-accent me-2 mt-1"></i>
+                                        <span>Dominated page 1 for competitive SaaS keywords</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-accent me-2 mt-1"></i>
+                                        <span>Increased demo requests by 600%</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-accent me-2 mt-1"></i>
+                                        <span>Established CEO as industry thought leader</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <blockquote
+                                class="border-s-4 border-accent ps-4 italic text-gray-700 dark:text-gray-300 mb-6">
+                                "The team at SEO Pro understands B2B SaaS marketing like no other agency. Our pipeline
+                                has never been stronger!"
+                                <footer class="text-sm text-gray-500 mt-2 not-italic">— Sarah Johnson, CMO CloudSoft
+                                </footer>
+                            </blockquote>
+
+                            <a href="contact.html"
+                                class="inline-block px-6 py-3 rounded-xl border-2 border-accent text-accent font-semibold hover:bg-accent hover:text-white transition-all">
+                                Learn More
+                            </a>
+                        </div>
+                        <div class="order-1 lg:order-2 h-60 lg:h-full overflow-hidden">
+                            <img src="https://www.rentasalesrep.com/wp-content/uploads/2024/02/Key-Strategies-for-Effective-B2B-SaaS-Lead-Generation.jpg"
+                                alt="CloudSoft SaaS"
+                                class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case Study 3 -->
+                <div class="bg-gray-50 dark:bg-gray-800 rounded-3xl overflow-hidden shadow-2xl animate-on-scroll">
+                    <div class="grid lg:grid-cols-2">
+                        <div class="h-80 lg:h-full overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800&h=600&fit=crop"
+                                alt="Local Business SEO"
+                                class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="p-8 lg:p-12">
+                            <div class="flex items-center mb-4">
+                                <span
+                                    class="px-4 py-2 bg-secondary/20 text-secondary rounded-full text-sm font-semibold">Local
+                                    Business</span>
+                                <span class="ms-4 text-gray-500"><i class="fas fa-calendar me-2"></i>6 Months
+                                    Campaign</span>
+                            </div>
+                            <h2 class="text-3xl lg:text-4xl font-bold mb-4">Dental Practice Local Domination</h2>
+                            <p class="text-gray-600 dark:text-gray-400 mb-6">
+                                A family dental practice wanted to attract more local patients and compete with larger
+                                dental chains in their area.
+                            </p>
+
+                            <div class="grid grid-cols-3 gap-2 sm:gap-4 mb-6">
+                                <div class="text-center p-2 sm:p-4 bg-green-50 dark:bg-green-900/20 rounded-xl">
+                                    <div class="text-xl sm:text-2xl lg:text-3xl font-bold text-secondary mb-1 whitespace-nowrap">+280%</div>
+                                    <div class="text-[10px] sm:text-xs text-gray-600 dark:text-gray-400">Phone Calls</div>
+                                </div>
+                                <div class="text-center p-2 sm:p-4 bg-cyan-50 dark:bg-cyan-900/20 rounded-xl">
+                                    <div class="text-xl sm:text-2xl lg:text-3xl font-bold text-accent mb-1 whitespace-nowrap">Top 3</div>
+                                    <div class="text-[10px] sm:text-xs text-gray-600 dark:text-gray-400">Local Pack</div>
+                                </div>
+                                <div class="text-center p-2 sm:p-4 bg-purple-50 dark:bg-purple-900/20 rounded-xl">
+                                    <div class="text-xl sm:text-2xl lg:text-3xl font-bold text-purple-500 mb-1 whitespace-nowrap">+350%</div>
+                                    <div class="text-[10px] sm:text-xs text-gray-600 dark:text-gray-400">New Patients</div>
+                                </div>
+                            </div>
+
+                            <div class="mb-6">
+                                <h3 class="font-semibold mb-3">Key Achievements:</h3>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-secondary me-2 mt-1"></i>
+                                        <span>#1 ranking in Google Local Pack for all target keywords</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-secondary me-2 mt-1"></i>
+                                        <span>5-star review profile with 200+ reviews</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-secondary me-2 mt-1"></i>
+                                        <span>Became most-searched dental practice in the city</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <blockquote
+                                class="border-s-4 border-secondary ps-4 italic text-gray-700 dark:text-gray-300 mb-6">
+                                "Our appointment book is fully booked months in advance. SEO Pro's local SEO strategy
+                                changed everything for our practice!"
+                                <footer class="text-sm text-gray-500 mt-2 not-italic">— Dr. Michael Roberts, DDS
+                                </footer>
+                            </blockquote>
+
+                            <a href="contact.html"
+                                class="inline-block px-6 py-3 rounded-xl bg-gradient-to-r from-secondary to-accent text-white font-semibold hover:shadow-lg transition-all">
+                                Get Similar Results
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Traffic Growth Graph Section -->
+    <section class="py-20 gradient-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-4xl lg:text-5xl font-bold mb-4 text-white">
+                    Typical Client <span class="text-secondary">Growth Trajectory</span>
+                </h2>
+                <p class="text-xl text-gray-300">See the average traffic growth over 12 months</p>
+            </div>
+
+            <div class="glass-card rounded-3xl p-8 lg:p-12 animate-on-scroll">
+                <div class="h-80 flex items-end justify-around gap-2">
+                    <!-- Month bars -->
+                    <div class="w-full bg-secondary/20 rounded-t-lg relative group" style="height: 20%;">
+                        <div
+                            class="absolute -top-10 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-white text-gray-900 px-3 py-1 rounded text-sm font-semibold whitespace-nowrap">
+                            Month 1: +10%
+                        </div>
+                        <div class="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-white/80 text-xs">M1
+                        </div>
+                    </div>
+                    <div class="w-full bg-secondary/30 rounded-t-lg relative group" style="height: 30%;">
+                        <div
+                            class="absolute -top-10 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-white text-gray-900 px-3 py-1 rounded text-sm font-semibold whitespace-nowrap">
+                            Month 2: +25%
+                        </div>
+                        <div class="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-white/80 text-xs">M2
+                        </div>
+                    </div>
+                    <div class="w-full bg-secondary/40 rounded-t-lg relative group" style="height: 45%;">
+                        <div
+                            class="absolute -top-10 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-white text-gray-900 px-3 py-1 rounded text-sm font-semibold whitespace-nowrap">
+                            Month 3: +45%
+                        </div>
+                        <div class="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-white/80 text-xs">M3
+                        </div>
+                    </div>
+                    <div class="w-full bg-secondary/50 rounded-t-lg relative group" style="height: 60%;">
+                        <div
+                            class="absolute -top-10 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-white text-gray-900 px-3 py-1 rounded text-sm font-semibold whitespace-nowrap">
+                            Month 4: +80%
+                        </div>
+                        <div class="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-white/80 text-xs">M4
+                        </div>
+                    </div>
+                    <div class="w-full bg-secondary/60 rounded-t-lg relative group" style="height: 75%;">
+                        <div
+                            class="absolute -top-10 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-white text-gray-900 px-3 py-1 rounded text-sm font-semibold whitespace-nowrap">
+                            Month 5: +120%
+                        </div>
+                        <div class="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-white/80 text-xs">M5
+                        </div>
+                    </div>
+                    <div class="w-full bg-secondary/70 rounded-t-lg relative group" style="height: 85%;">
+                        <div
+                            class="absolute -top-10 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-white text-gray-900 px-3 py-1 rounded text-sm font-semibold whitespace-nowrap">
+                            Month 6: +180%
+                        </div>
+                        <div class="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-white/80 text-xs">M6
+                        </div>
+                    </div>
+                    <div class="w-full bg-secondary/80 rounded-t-lg relative group" style="height: 90%;">
+                        <div
+                            class="absolute -top-10 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-white text-gray-900 px-3 py-1 rounded text-sm font-semibold whitespace-nowrap">
+                            Month 7: +240%
+                        </div>
+                        <div class="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-white/80 text-xs">M7
+                        </div>
+                    </div>
+                    <div class="w-full bg-secondary/90 rounded-t-lg relative group" style="height: 95%;">
+                        <div
+                            class="absolute -top-10 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-white text-gray-900 px-3 py-1 rounded text-sm font-semibold whitespace-nowrap">
+                            Month 8: +310%
+                        </div>
+                        <div class="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-white/80 text-xs">M8
+                        </div>
+                    </div>
+                    <div class="w-full bg-secondary rounded-t-lg relative group" style="height: 100%;">
+                        <div
+                            class="absolute -top-10 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-white text-gray-900 px-3 py-1 rounded text-sm font-semibold whitespace-nowrap">
+                            Month 9: +380%
+                        </div>
+                        <div class="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-white/80 text-xs">M9
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4 text-center text-white/80 text-sm">Average Traffic Growth Over 9 Months</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Results removed per request -->
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <div>
+                    <div class="flex items-center space-x-2 mb-6">
+                        <div
+                            class="w-10 h-10 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center">
+                            <i class="fas fa-chart-line text-white text-xl"></i>
+                        </div>
+                        <span class="text-2xl font-bold">SEO Pro</span>
+                    </div>
+                    <p class="text-gray-400 mb-6">Professional SEO services to help your business grow online.</p>
+                    <div class="flex space-x-4">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-secondary transition-colors"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-secondary transition-colors"><i
+                                class="fab fa-twitter"></i></a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-secondary transition-colors"><i
+                                class="fab fa-linkedin-in"></i></a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-secondary transition-colors"><i
+                                class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="about.html" class="text-gray-400 hover:text-secondary transition-colors">About
+                                Us</a></li>
+                        <li><a href="services.html"
+                                class="text-gray-400 hover:text-secondary transition-colors">Services</a></li>
+                        <li><a href="case-studies.html"
+                                class="text-gray-400 hover:text-secondary transition-colors">Case Studies</a></li>
+                        <li><a href="pricing.html"
+                                class="text-gray-400 hover:text-secondary transition-colors">Pricing</a></li>
+                        <li><a href="contact.html"
+                                class="text-gray-400 hover:text-secondary transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Services</h3>
+                    <ul class="space-y-3">
+                        <li><a href="services.html" class="text-gray-400 hover:text-secondary transition-colors">On-Page
+                                SEO</a></li>
+                        <li><a href="services.html"
+                                class="text-gray-400 hover:text-secondary transition-colors">Off-Page SEO</a></li>
+                        <li><a href="services.html"
+                                class="text-gray-400 hover:text-secondary transition-colors">Technical SEO</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-secondary transition-colors">Local
+                                SEO</a></li>
+                        <li><a href="services.html"
+                                class="text-gray-400 hover:text-secondary transition-colors">E-commerce SEO</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Contact Us</h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-start space-x-3"><i class="fas fa-map-marker-alt mt-1"></i><span>123 SEO
+                                Street, Digital City, DC 12345</span></li>
+                        <li class="flex items-center space-x-3"><i class="fas fa-phone"></i><span>+1 (234)
+                                567-890</span></li>
+                        <li class="flex items-center space-x-3"><i
+                                class="fas fa-envelope"></i><span>hello@seopro.com</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">&copy; 2026 SEO Pro. All rights reserved.</p>
+                <div class="flex space-x-6 text-sm">
+                    <a href="#" class="text-gray-400 hover:text-secondary transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-secondary transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

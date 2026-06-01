@@ -1,0 +1,7 @@
+Changes made:
+- index2.html: Removed decorative icons in SEO Process steps (steps 1-4).
+- services.html: Made service cards flex columns, ensured images use object-cover and fill container, added mt-auto to 'Learn More' CTAs to align them at the card bottoms.
+- about.html: Moved the statistics section into the second content section, placing stats earlier in the About page flow.
+- case-studies.html: Updated testimonial cards to use full-height flex layout so quote text boxes align consistently across cards.
+
+Files edited: index2.html, services.html, about.html, case-studies.html

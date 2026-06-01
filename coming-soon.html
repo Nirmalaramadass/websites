@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon - SEO Pro</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta name="description" content="Something amazing is in the works. Stay tuned!">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Emoji Icon Styles -->
+    <link rel="stylesheet" href="assets/css/image-icons.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0f172a',
+                        secondary: '#22c55e',
+                        accent: '#06b6d4'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body { 
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%);
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        [dir="rtl"] { direction: rtl; text-align: right; }
+        
+        /* Countdown Animation */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        /* Floating Animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        /* Countdown Numbers */
+        .countdown-number {
+            min-width: 100px;
+        }
+        
+        @media (max-width: 640px) {
+            .countdown-number {
+                min-width: 70px;
+            }
+        }
+
+        body, .glass-card, input, button, a {
+            transition: background-color .3s ease, color .3s ease, border-color .3s ease, box-shadow .3s ease;
+        }
+
+        html:not(.dark) body {
+            background: linear-gradient(135deg, #f8fafc 0%, #dbeafe 50%, #f8fafc 100%);
+        }
+
+        html:not(.dark) .glass-card {
+            background: rgba(255, 255, 255, 0.82);
+            border-color: rgba(148, 163, 184, 0.35);
+        }
+
+        html:not(.dark) .text-white {
+            color: #0f172a !important;
+        }
+
+        html:not(.dark) .text-gray-300 {
+            color: #334155 !important;
+        }
+
+        html:not(.dark) .text-gray-400 {
+            color: #475569 !important;
+        }
+
+        html:not(.dark) .bg-white\/10 {
+            background-color: rgba(255, 255, 255, 0.84) !important;
+        }
+
+        html:not(.dark) .border-gray-600 {
+            border-color: rgba(148, 163, 184, 0.6) !important;
+        }
+
+        html:not(.dark) input {
+            color: #0f172a !important;
+        }
+
+        html:not(.dark) .bg-gradient-to-r.text-white,
+        html:not(.dark) .bg-gradient-to-br.text-white,
+        html:not(.dark) .bg-gradient-to-r .text-white,
+        html:not(.dark) .bg-gradient-to-br .text-white {
+            color: #ffffff !important;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4 relative overflow-hidden">
+    
+    <!-- Animated Background Particles -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <canvas id="hero-particles"></canvas>
+    </div>
+    
+    <!-- Coming Soon Content -->
+    <div class="text-center relative z-10 max-w-4xl mx-auto animate-on-scroll">
+        <!-- Logo -->
+        <div class="mb-8 flex justify-center">
+            <a href="index.html" class="inline-flex items-center space-x-2">
+                <div class="w-16 h-16 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center floating">
+                    <i class="fas fa-chart-line text-white text-3xl"></i>
+                </div>
+                <span class="text-4xl font-bold bg-gradient-to-r from-secondary to-accent bg-clip-text text-transparent whitespace-nowrap">SEO Pro</span>
+            </a>
+        </div>
+        
+        <!-- Main Headline -->
+        <h1 class="text-5xl lg:text-7xl font-bold text-white mb-6">
+            Something <span class="bg-gradient-to-r from-secondary to-accent bg-clip-text text-transparent">Amazing</span> is Coming
+        </h1>
+        
+        <p class="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
+            We're working hard to bring you an incredible new feature. Stay tuned for our big launch!
+        </p>
+        
+        <!-- Countdown Timer -->
+        <div class="grid grid-cols-4 gap-4 md:gap-8 mb-12 max-w-3xl mx-auto">
+            <div class="glass-card rounded-2xl p-6 countdown-number">
+                <div id="days" class="text-4xl md:text-6xl font-bold text-secondary mb-2">00</div>
+                <div class="text-sm md:text-base text-gray-400">Days</div>
+            </div>
+            <div class="glass-card rounded-2xl p-6 countdown-number">
+                <div id="hours" class="text-4xl md:text-6xl font-bold text-accent mb-2">00</div>
+                <div class="text-sm md:text-base text-gray-400">Hours</div>
+            </div>
+            <div class="glass-card rounded-2xl p-6 countdown-number">
+                <div id="minutes" class="text-4xl md:text-6xl font-bold text-secondary mb-2">00</div>
+                <div class="text-sm md:text-base text-gray-400">Minutes</div>
+            </div>
+            <div class="glass-card rounded-2xl p-6 countdown-number">
+                <div id="seconds" class="text-4xl md:text-6xl font-bold text-accent mb-2 pulse-animation">00</div>
+                <div class="text-sm md:text-base text-gray-400">Seconds</div>
+            </div>
+        </div>
+        
+        <!-- Launch Message -->
+        <div class="glass-card rounded-2xl p-8 mb-12">
+            <div class="flex items-center justify-center mb-4">
+                <i class="fas fa-rocket text-5xl text-secondary floating"></i>
+            </div>
+            <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">Launching Soon!</h2>
+            <p class="text-gray-300 max-w-md mx-auto">
+                Be the first to know when we launch. Subscribe to get exclusive updates and early access.
+            </p>
+        </div>
+        
+        <!-- Notification Signup -->
+        <div class="max-w-md mx-auto mb-12">
+            <form id="notify-form" onsubmit="handleNotify(event)" class="space-y-4">
+                <div class="relative">
+                    <input type="email" id="email" required placeholder=" " 
+                        class="w-full px-6 py-4 rounded-xl border-2 border-gray-600 bg-white/10 text-white focus:border-secondary focus:outline-none transition-colors peer">
+                    <label for="email" class="absolute left-6 top-4 text-gray-400 transition-all cursor-text">
+                        Enter your email
+                    </label>
+                </div>
+                <button type="submit" class="w-full px-8 py-4 rounded-xl bg-gradient-to-r from-secondary to-accent text-white font-semibold text-lg hover:shadow-2xl hover:shadow-secondary/50 transition-all transform hover:scale-105">
+                    <i class="fas fa-bell me-2"></i> Notify Me
+                </button>
+            </form>
+        </div>
+        
+        <!-- Progress Bar -->
+        <div class="max-w-2xl mx-auto mb-12">
+            <div class="flex justify-between text-sm text-gray-400 mb-2">
+                <span>Development Progress</span>
+                <span>85%</span>
+            </div>
+            <div class="w-full h-4 bg-white/10 rounded-full overflow-hidden">
+                <div class="h-full bg-gradient-to-r from-secondary to-accent rounded-full transition-all duration-1000" style="width: 85%;"></div>
+            </div>
+        </div>
+        
+        <!-- Social Links -->
+        <div class="flex justify-center space-x-6 mb-12">
+            <a href="#" class="w-12 h-12 rounded-full glass-card flex items-center justify-center hover:bg-secondary transition-all transform hover:scale-110">
+                <i class="fab fa-facebook-f text-xl text-white"></i>
+            </a>
+            <a href="#" class="w-12 h-12 rounded-full glass-card flex items-center justify-center hover:bg-secondary transition-all transform hover:scale-110">
+                <i class="fab fa-twitter text-xl text-white"></i>
+            </a>
+            <a href="#" class="w-12 h-12 rounded-full glass-card flex items-center justify-center hover:bg-secondary transition-all transform hover:scale-110">
+                <i class="fab fa-instagram text-xl text-white"></i>
+            </a>
+            <a href="#" class="w-12 h-12 rounded-full glass-card flex items-center justify-center hover:bg-secondary transition-all transform hover:scale-110">
+                <i class="fab fa-linkedin-in text-xl text-white"></i>
+            </a>
+        </div>
+        
+        <!-- Back to Home -->
+        <div>
+            <a href="index.html" class="inline-flex items-center text-gray-300 hover:text-white transition-colors">
+                <i class="fas fa-arrow-left me-2"></i> Back to Home
+            </a>
+        </div>
+    </div>
+    
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Countdown Timer
+        function updateCountdown() {
+            // Set launch date (10 days from now for demo)
+            const launchDate = new Date();
+            launchDate.setDate(launchDate.getDate() + 10);
+            
+            function update() {
+                const now = new Date().getTime();
+                const distance = launchDate - now;
+                
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                document.getElementById('days').textContent = String(days).padStart(2, '0');
+                document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+                document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+                document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+            }
+            
+            update();
+            setInterval(update, 1000);
+        }
+        
+        // Notify Form Handler
+        function handleNotify(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            
+            if (email) {
+                alert('Thank you! You\'ll be notified when we launch.');
+                document.getElementById('notify-form').reset();
+            }
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCountdown();
+            
+            document.querySelectorAll('.animate-on-scroll').forEach(el => {
+                el.classList.add('transition-all', 'duration-700');
+            });
+        });
+    </script>
+</body>
+</html>

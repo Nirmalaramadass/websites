@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard - SEO Pro</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/css/image-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0f172a',
+                        secondary: '#22c55e',
+                        accent: '#06b6d4'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        :root {
+            --sidebar-width: 17.5rem;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+
+        [dir="rtl"] {
+            direction: rtl;
+            text-align: right;
+        }
+
+        .dashboard-shell {
+            min-height: 100vh;
+            background: linear-gradient(180deg, #f8fafc 0%, #ecfeff 100%);
+            overflow-x: hidden;
+        }
+
+        .sidebar {
+            position: fixed;
+            inset: 0 auto 0 0;
+            width: var(--sidebar-width);
+            display: flex;
+            flex-direction: column;
+            border-right: 1px solid rgba(148, 163, 184, 0.25);
+            background: #ffffff;
+            z-index: 50;
+            transition: transform .3s ease;
+            overflow-y: auto;
+        }
+
+        .main {
+            margin-left: var(--sidebar-width);
+            min-height: 100vh;
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        main,
+        section,
+        article {
+            min-width: 0;
+            max-width: 100%;
+        }
+
+        .chart-wrap {
+            position: relative;
+            width: 100%;
+            min-width: 0;
+            overflow: hidden;
+        }
+
+        canvas {
+            display: block !important;
+            width: 100% !important;
+            max-width: 100% !important;
+        }
+
+        [dir="rtl"] .sidebar {
+            inset: 0 0 0 auto;
+            border-right: 0;
+            border-left: 1px solid rgba(148, 163, 184, 0.25);
+        }
+
+        [dir="rtl"] .main {
+            margin-left: 0;
+            margin-right: var(--sidebar-width);
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+
+            .sidebar.open {
+                transform: translateX(0);
+            }
+
+            .main {
+                margin-left: 0;
+            }
+
+            [dir="rtl"] .sidebar {
+                transform: translateX(100%);
+            }
+
+            [dir="rtl"] .sidebar.open {
+                transform: translateX(0);
+            }
+
+            [dir="rtl"] .main {
+                margin-right: 0;
+            }
+        }
+
+        html.dark .dashboard-shell {
+            background: linear-gradient(180deg, #020617 0%, #0f172a 100%);
+            color: #e2e8f0;
+        }
+
+        html.dark .sidebar,
+        html.dark .main header,
+        html.dark .main article,
+        html.dark .main section,
+        html.dark .main table {
+            background-color: #0f172a !important;
+            color: #e2e8f0 !important;
+            border-color: #334155 !important;
+        }
+
+        html.dark .main h1,
+        html.dark .main h2,
+        html.dark .main th,
+        html.dark .main td,
+        html.dark .main p,
+        html.dark .main span,
+        html.dark .sidebar p,
+        html.dark .sidebar span,
+        html.dark .sidebar i {
+            color: #e2e8f0;
+        }
+
+        html.dark .text-gray-500 {
+            color: #94a3b8 !important;
+        }
+
+        html.dark .hover\:bg-gray-100:hover,
+        html.dark .bg-gray-100,
+        html.dark .hover\:bg-red-50:hover {
+            background-color: #1e293b !important;
+        }
+
+        html.dark .bg-green-50,
+        html.dark .bg-cyan-50,
+        html.dark .bg-yellow-50,
+        html.dark .bg-blue-50,
+        html.dark .bg-green-100,
+        html.dark .bg-cyan-100 {
+            background-color: #1e293b !important;
+        }
+
+        html.dark .text-green-600,
+        html.dark .text-green-700,
+        html.dark .text-cyan-700,
+        html.dark .text-yellow-700,
+        html.dark .text-blue-700,
+        html.dark .text-red-600 {
+            color: #22c55e !important;
+        }
+
+        html.dark .border-gray-100,
+        html.dark .border-gray-200,
+        html.dark .border-green-500,
+        html.dark .border-blue-500 {
+            border-color: #334155 !important;
+        }
+    </style>
+</head>
+
+<body class="dashboard-shell text-gray-900">
+    <div id="overlay" class="fixed inset-0 bg-black/40 z-40 hidden xl:hidden" onclick="toggleSidebar()"></div>
+
+    <aside id="sidebar" class="sidebar">
+        <div class="p-6 border-b border-gray-200">
+            <a href="index.html" class="flex items-center gap-3">
+                <div
+                    class="w-10 h-10 rounded-xl bg-gradient-to-br from-secondary to-accent text-white flex items-center justify-center">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div>
+                    <p class="font-bold text-xl whitespace-nowrap">SEO Pro</p>
+                    <p class="text-xs text-gray-500">Client Panel</p>
+                </div>
+            </a>
+        </div>
+
+        <nav class="p-4 space-y-2 flex-1">
+            <a href="user-dashboard.html"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl bg-accent/10 text-accent font-semibold">
+                <i class="fas fa-gauge-high text-2xl"></i>
+                <span>Overview</span>
+            </a>
+            <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-gray-100 transition-colors">
+                <i class="fas fa-globe text-2xl"></i>
+                <span>My Websites</span>
+            </a>
+            <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-gray-100 transition-colors">
+                <i class="fas fa-chart-column text-2xl"></i>
+                <span>Performance</span>
+            </a>
+            <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-gray-100 transition-colors">
+                <i class="fas fa-key text-2xl"></i>
+                <span>Keywords</span>
+            </a>
+            <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-gray-100 transition-colors">
+                <i class="fas fa-file-lines text-2xl"></i>
+                <span>Reports</span>
+            </a>
+            <a href="admin-dashboard.html"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-gray-100 transition-colors">
+                <i class="fas fa-shield-halved text-2xl"></i>
+                <span>Admin Dashboard</span>
+            </a>
+        </nav>
+
+        <div class="p-4 border-t border-gray-200">
+            <a href="login.html"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl text-red-600 hover:bg-red-50 transition-colors">
+
+                <span>Logout</span>
+            </a>
+        </div>
+    </aside>
+
+    <div class="main">
+        <header class="sticky top-0 z-30 bg-white/90 backdrop-blur border-b border-gray-200">
+            <div class="px-4 sm:px-6 py-4 flex items-center justify-between gap-3">
+                <div class="flex items-center gap-3 min-w-0">
+                    <button class="xl:hidden p-2 rounded-lg hover:bg-gray-100" onclick="toggleSidebar()">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                    <h1 class="text-lg sm:text-2xl font-bold truncate">Welcome back, John!</h1>
+                </div>
+
+                <div class="flex items-center gap-2 sm:gap-4">
+                    <button id="rtl-toggle"
+                        class="p-2 h-10 w-12 rounded-lg bg-gray-100 hover:bg-gray-200 font-bold text-sm tracking-tighter"
+                        title="Switch direction">
+                        RTL
+                    </button>
+                    <button class="relative p-2 rounded-lg hover:bg-gray-100">
+                        <i class="fas fa-bell"></i>
+                        <span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-red-500"></span>
+                    </button>
+                    <div
+                        class="w-10 h-10 rounded-full bg-gradient-to-br from-accent to-secondary text-white font-bold flex items-center justify-center">
+                        JD</div>
+                </div>
+            </div>
+        </header>
+
+        <main class="p-4 sm:p-6 space-y-6">
+            <section class="rounded-2xl bg-gradient-to-r from-secondary to-accent text-white p-6 sm:p-8 shadow-lg">
+                <h2 class="text-2xl sm:text-3xl font-bold mb-2">Your SEO Snapshot</h2>
+                <p class="opacity-90 mb-6">A clear view of rankings, traffic, and growth opportunities.</p>
+                <div class="grid sm:grid-cols-3 gap-4">
+                    <div class="bg-white/15 rounded-xl p-4">
+                        <p class="text-3xl font-bold">+127%</p>
+                        <p class="text-sm opacity-90">Traffic Growth</p>
+                    </div>
+                    <div class="bg-white/15 rounded-xl p-4">
+                        <p class="text-3xl font-bold">Top 5</p>
+                        <p class="text-sm opacity-90">Avg Position</p>
+                    </div>
+                    <div class="bg-white/15 rounded-xl p-4">
+                        <p class="text-3xl font-bold">847</p>
+                        <p class="text-sm opacity-90">Keywords Ranked</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="grid sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-6">
+                <article class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
+                    <p class="text-sm text-gray-500">Monthly Visitors</p>
+                    <p class="text-3xl font-bold mt-2">24,589</p>
+                    <p class="text-xs text-green-600 mt-1">+18% this month</p>
+                </article>
+                <article class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
+                    <p class="text-sm text-gray-500">Ranked Keywords</p>
+                    <p class="text-3xl font-bold mt-2">847</p>
+                    <p class="text-xs text-green-600 mt-1">+12% this month</p>
+                </article>
+                <article class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
+                    <p class="text-sm text-gray-500">Backlinks Built</p>
+                    <p class="text-3xl font-bold mt-2">156</p>
+                    <p class="text-xs text-green-600 mt-1">+5 this month</p>
+                </article>
+                <article class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
+                    <p class="text-sm text-gray-500">Conversion Rate</p>
+                    <p class="text-3xl font-bold mt-2">8.7%</p>
+                    <p class="text-xs text-green-600 mt-1">+3.2% this month</p>
+                </article>
+            </section>
+
+            <section class="grid xl:grid-cols-2 gap-6">
+                <article class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-lg font-bold">Keyword Progress</h2>
+                        <span class="text-sm text-gray-500">Last 4 weeks</span>
+                    </div>
+                    <div class="chart-wrap h-72"><canvas id="userChart"></canvas></div>
+                </article>
+
+                <article class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
+                    <h2 class="text-lg font-bold mb-4">Top Keyword Positions</h2>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between p-4 rounded-xl bg-green-50">
+                            <div class="min-w-0">
+                                <p class="font-semibold">best SEO tools</p>
+                                <p class="text-sm text-gray-500">Volume: 18,500</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-2xl font-bold text-green-700">#1</p>
+                                <p class="text-xs text-green-700"><i class="fas fa-arrow-up"></i> 2</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between p-4 rounded-xl bg-cyan-50">
+                            <div class="min-w-0">
+                                <p class="font-semibold">SEO optimization services</p>
+                                <p class="text-sm text-gray-500">Volume: 12,300</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-2xl font-bold text-cyan-700">#2</p>
+                                <p class="text-xs text-cyan-700"><i class="fas fa-arrow-up"></i> 5</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between p-4 rounded-xl bg-yellow-50">
+                            <div class="min-w-0">
+                                <p class="font-semibold">digital marketing agency</p>
+                                <p class="text-sm text-gray-500">Volume: 22,100</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-2xl font-bold text-yellow-700">#3</p>
+                                <p class="text-xs text-gray-500"><i class="fas fa-minus"></i> 0</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <section class="grid xl:grid-cols-2 gap-6">
+                <article class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
+                    <h2 class="text-lg font-bold mb-4">Recent Activity</h2>
+                    <div class="space-y-4">
+                        <div class="flex gap-3">
+                            <div
+                                class="w-9 h-9 rounded-full bg-green-100 text-green-700 flex items-center justify-center shrink-0">
+                                <i class="fas fa-chart-line"></i></div>
+                            <div class="min-w-0">
+                                <p class="font-semibold">Ranking improved</p>
+                                <p class="text-sm text-gray-500">SEO tools moved from #3 to #1</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-3">
+                            <div
+                                class="w-9 h-9 rounded-full bg-cyan-100 text-cyan-700 flex items-center justify-center shrink-0">
+                                <i class="fas fa-file-lines"></i></div>
+                            <div class="min-w-0">
+                                <p class="font-semibold">New blog published</p>
+                                <p class="text-sm text-gray-500">10 SEO Trends for 2026</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
+                    <h2 class="text-lg font-bold mb-4">Alerts</h2>
+                    <div class="space-y-3">
+                        <div class="p-4 rounded-xl border-l-4 border-green-500 bg-green-50">
+                            <p class="font-semibold text-green-700">Goal Achieved</p>
+                            <p class="text-sm text-green-700">Top 3 positions for 25 keywords this month.</p>
+                        </div>
+                        <div class="p-4 rounded-xl border-l-4 border-blue-500 bg-blue-50">
+                            <p class="font-semibold text-blue-700">Action Required</p>
+                            <p class="text-sm text-blue-700">Approve October content calendar.</p>
+                        </div>
+                    </div>
+                </article>
+            </section>
+        </main>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        let userChart;
+
+        function getUserChartTheme() {
+            const isDark = document.documentElement.classList.contains('dark');
+            return {
+                tickColor: isDark ? '#94a3b8' : '#64748b',
+                gridColor: isDark ? 'rgba(71, 85, 105, .45)' : 'rgba(148, 163, 184, .2)',
+                legendColor: isDark ? '#cbd5e1' : '#334155'
+            };
+        }
+
+        function applyUserChartTheme() {
+            if (!userChart) return;
+
+            const theme = getUserChartTheme();
+            userChart.options.plugins.legend.labels = { color: theme.legendColor };
+            userChart.options.scales.x.ticks = { color: theme.tickColor };
+            userChart.options.scales.y.ticks = { color: theme.tickColor };
+            userChart.options.scales.y.grid.color = theme.gridColor;
+            userChart.update();
+        }
+
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('open');
+            document.getElementById('overlay').classList.toggle('hidden');
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const theme = getUserChartTheme();
+
+            userChart = new Chart(document.getElementById('userChart'), {
+                type: 'line',
+                data: {
+                    labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+                    datasets: [
+                        {
+                            label: 'Top 10',
+                            data: [45, 58, 72, 85],
+                            borderColor: '#06b6d4',
+                            backgroundColor: 'rgba(6, 182, 212, 0.15)',
+                            fill: true,
+                            tension: 0.35
+                        },
+                        {
+                            label: 'Top 3',
+                            data: [12, 18, 25, 32],
+                            borderColor: '#22c55e',
+                            backgroundColor: 'rgba(34, 197, 94, 0.12)',
+                            fill: true,
+                            tension: 0.35
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: { color: theme.legendColor }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            ticks: { color: theme.tickColor },
+                            grid: { color: theme.gridColor }
+                        },
+                        x: {
+                            ticks: { color: theme.tickColor },
+                            grid: { display: false }
+                        }
+                    }
+                }
+            });
+
+            document.addEventListener('themechange', applyUserChartTheme);
+        });
+    </script>
+</body>
+
+</html>

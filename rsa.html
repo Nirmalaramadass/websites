@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RSA Algorithm</title>
+<style>
+body {
+font-family: Arial, sans-serif;
+max-width: 720px;
+margin: 0 auto;
+padding: 24px 16px;
+line-height: 1.5;
+background: #f8fafc;
+color: #0f172a;
+}
+
+h2 {
+margin-top: 0;
+}
+
+input {
+width: 100%;
+max-width: 360px;
+padding: 10px 12px;
+border: 1px solid #94a3b8;
+border-radius: 8px;
+background: #ffffff;
+color: #0f172a;
+}
+
+button {
+margin-right: 8px;
+margin-bottom: 8px;
+padding: 10px 14px;
+border: 1px solid #64748b;
+background: #ffffff;
+color: #0f172a;
+border-radius: 8px;
+cursor: pointer;
+}
+
+button:hover {
+background: #e2e8f0;
+}
+
+html.dark body {
+background: #0f172a;
+color: #e2e8f0;
+}
+
+html.dark input {
+background: #1e293b;
+color: #e2e8f0;
+border-color: #475569;
+}
+
+html.dark button {
+background: #1e293b;
+color: #e2e8f0;
+border-color: #64748b;
+}
+
+html.dark button:hover {
+background: #334155;
+}
+</style>
+</head>
+
+<body>
+
+<h2>RSA Encryption and Decryption</h2>
+
+<p>Enter Prime Numbers</p>
+
+p: <input id="p"><br><br>
+q: <input id="q"><br><br>
+e (public key): <input id="e"><br><br>
+
+Message: <input id="msg"><br><br>
+
+<button onclick="generateKeys()">Generate Keys</button>
+<button onclick="encrypt()">Encrypt</button>
+<button onclick="decrypt()">Decrypt</button>
+
+<h3 id="keys"></h3>
+<h3 id="enc"></h3>
+<h3 id="dec"></h3>
+
+<script>
+
+let n, phi, d;
+let encrypted = [];
+
+
+function gcd(a,b){
+while(b!=0){
+let t=b;
+b=a%b;
+a=t;
+}
+return a;
+}
+
+
+function modInverse(e,phi){
+
+for(let i=1;i<phi;i++){
+if((e*i)%phi==1)
+return i;
+}
+
+return -1;
+}
+
+
+function modPow(base,exp,mod){
+
+let result=1;
+base=base%mod;
+
+while(exp>0){
+
+if(exp%2==1)
+result=(result*base)%mod;
+
+exp=Math.floor(exp/2);
+base=(base*base)%mod;
+}
+
+return result;
+}
+
+
+function generateKeys(){
+
+let p=parseInt(document.getElementById("p").value);
+let q=parseInt(document.getElementById("q").value);
+let e=parseInt(document.getElementById("e").value);
+
+n=p*q;
+phi=(p-1)*(q-1);
+
+if(gcd(e,phi)!=1){
+alert("e must be coprime with phi");
+return;
+}
+
+d=modInverse(e,phi);
+
+document.getElementById("keys").innerHTML=
+"Public Key (e,n): ("+e+","+n+") <br> Private Key (d,n): ("+d+","+n+")";
+
+}
+
+
+function encrypt(){
+
+encrypted=[];
+
+let msg=document.getElementById("msg").value;
+
+for(let i=0;i<msg.length;i++){
+
+let m=msg.charCodeAt(i);
+
+let c=modPow(m,
+parseInt(document.getElementById("e").value),
+n);
+
+encrypted.push(c);
+
+}
+
+document.getElementById("enc").innerText=
+"Encrypted: "+encrypted.join(" ");
+}
+
+
+function decrypt(){
+
+let text="";
+
+for(let i=0;i<encrypted.length;i++){
+
+let m=modPow(encrypted[i],d,n);
+
+text+=String.fromCharCode(m);
+
+}
+
+document.getElementById("dec").innerText=
+"Decrypted: "+text;
+
+}
+
+</script>
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>

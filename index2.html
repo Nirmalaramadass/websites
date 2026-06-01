@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEO Pro - Corporate SEO Solutions | Professional Agency</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta name="description"
+        content="Enterprise-grade SEO solutions for corporations. Drive growth with data-driven strategies.">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Emoji Icon Styles -->
+    <link rel="stylesheet" href="assets/css/image-icons.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0f172a',
+                        secondary: '#22c55e',
+                        accent: '#06b6d4'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        [dir="rtl"] {
+            direction: rtl;
+            text-align: right;
+        }
+
+        [dir="rtl"] .flex {
+            flex-direction: row-reverse;
+        }
+
+        [dir="rtl"] .space-x-4>*+* {
+            margin-right: 1rem;
+            margin-left: 0;
+        }
+    </style>
+    <style>
+        /* Navbar action buttons should match height across pages */
+        #navbar a[href="login.html"],
+        #navbar a[href="contact.html"],
+        #mobile-menu a[href="login.html"],
+        #mobile-menu a[href="contact.html"] {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 3rem;
+            height: 3rem;
+            line-height: 1;
+            box-sizing: border-box;
+            white-space: nowrap;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        /* Hero sections should use 600 weight, section headings should be more moderate */
+        .hero-section h1,
+        .hero-section h2,
+        .hero-section h3 {
+            font-weight: 600 !important;
+        }
+
+        section:not(.hero-section) h2,
+        section:not(.hero-section) h3 {
+            font-weight: 500 !important;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 dark:bg-primary text-gray-900 dark:text-white transition-all duration-300">
+
+    <!-- Navbar (Same as index.html) -->
+    <nav id="navbar"
+        class="fixed top-0 w-full z-50 bg-white/80 dark:bg-primary/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center space-x-2">
+                    <div
+                        class="w-10 h-10 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center">
+                        <i class="fas fa-chart-line text-white text-xl"></i>
+                    </div>
+                    <span
+                        class="text-2xl font-bold bg-gradient-to-r from-secondary to-accent bg-clip-text text-transparent whitespace-nowrap">SEO
+                        Pro</span>
+                </div>
+
+                <div class="hidden xl:flex items-center space-x-8 rtl:space-x-reverse ml-12 rtl:ml-0 rtl:mr-12">
+                    <div class="relative">
+                        <button type="button"
+                            class="nav-dropdown-toggle inline-flex items-center gap-2 text-secondary font-semibold hover:text-accent transition-colors"
+                            data-dropdown="home-dropdown">
+                            Home <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div id="home-dropdown"
+                            class="nav-dropdown-menu hidden absolute top-full left-0 mt-3 w-44 rounded-lg bg-white dark:bg-primary border border-gray-200 dark:border-gray-700 shadow-xl p-2">
+                            <a href="index.html"
+                                class="block px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors whitespace-nowrap">Home
+                                1</a>
+                            <a href="index2.html"
+                                class="block px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors whitespace-nowrap">Home
+                                2</a>
+                        </div>
+                    </div>
+                    <a href="services.html" class="hover:text-secondary transition-colors">Services</a>
+                    <a href="about.html" class="hover:text-secondary transition-colors">About</a>
+                    <a href="case-studies.html" class="hover:text-secondary transition-colors whitespace-nowrap">Case
+                        Studies</a>
+                    <a href="pricing.html" class="hover:text-secondary transition-colors">Pricing</a>
+                    <a href="contact.html" class="hover:text-secondary transition-colors">Contact</a>
+                    <div class="relative">
+                        <button type="button"
+                            class="nav-dropdown-toggle inline-flex items-center gap-2 hover:text-secondary transition-colors"
+                            data-dropdown="dashboard-dropdown">
+                            Dashboard <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div id="dashboard-dropdown"
+                            class="nav-dropdown-menu hidden absolute top-full left-0 mt-3 w-52 rounded-lg bg-white dark:bg-primary border border-gray-200 dark:border-gray-700 shadow-xl p-2">
+                            <a href="user-dashboard.html"
+                                class="block px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors whitespace-nowrap">User
+                                Dashboard</a>
+                            <a href="admin-dashboard.html"
+                                class="block px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors whitespace-nowrap">Admin
+                                Dashboard</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hidden xl:flex items-center gap-4 ms-8">
+                    <button id="rtl-toggle"
+                        class="p-2 h-10 w-12 rounded-lg glass-modern hover:bg-white/20 transition-all font-bold text-sm tracking-tighter"
+                        title="Switch to RTL" aria-label="Toggle RTL/LTR">
+                        RTL
+                    </button>
+                    <a href="login.html"
+                        class="px-6 py-2 rounded-lg border-2 border-secondary text-secondary hover:bg-secondary hover:text-white transition-all font-semibold">Login</a>
+                    <a href="contact.html"
+                        class="px-6 py-2 rounded-lg bg-gradient-to-r from-secondary to-accent text-white hover:shadow-lg hover:shadow-secondary/50 transition-all font-semibold whitespace-nowrap">Get
+                        Started</a>
+                </div>
+
+                <button id="menu-btn"
+                    class="xl:hidden p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition-all">
+                    <div class="w-6 h-5 relative">
+                        <span class="bar absolute w-full h-0.5 bg-current top-0 left-0 transition-all"></span>
+                        <span class="bar absolute w-full h-0.5 bg-current top-1/2 left-0 transition-all"></span>
+                        <span class="bar absolute w-full h-0.5 bg-current bottom-0 left-0 transition-all"></span>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu"
+            class="hidden xl:hidden bg-white dark:bg-primary border-t border-gray-200 dark:border-gray-800">
+            <div class="px-4 py-4 space-y-4">
+                <details class="group">
+                    <summary
+                        class="list-none flex items-center justify-between cursor-pointer text-secondary font-semibold">
+                        Home
+                        <i class="fas fa-chevron-down text-xs"></i>
+                    </summary>
+                    <div class="mt-2 ml-4 space-y-2">
+                        <a href="index.html" class="block hover:text-secondary">Home 1</a>
+                        <a href="index2.html" class="block hover:text-secondary">Home 2</a>
+                    </div>
+                </details>
+                <a href="services.html" class="block hover:text-secondary">Services</a>
+                <a href="about.html" class="block hover:text-secondary">About</a>
+                <a href="case-studies.html" class="block hover:text-secondary">Case Studies</a>
+                <a href="pricing.html" class="block hover:text-secondary">Pricing</a>
+                <a href="contact.html" class="block hover:text-secondary">Contact</a>
+                <details class="group">
+                    <summary class="list-none flex items-center justify-between cursor-pointer hover:text-secondary">
+                        Dashboard
+                        <i class="fas fa-chevron-down text-xs"></i>
+                    </summary>
+                    <div class="mt-2 ml-4 space-y-2">
+                        <a href="user-dashboard.html" class="block hover:text-secondary">User Dashboard</a>
+                        <a href="admin-dashboard.html" class="block hover:text-secondary">Admin Dashboard</a>
+                    </div>
+                </details>
+                <div class="pt-4 border-t border-gray-200 dark:border-gray-800 space-y-3">
+                    <button id="rtl-toggle-mobile" class="w-full p-3 rounded-xl glass-modern text-center font-bold">
+                        RTL/LTR Mode
+                    </button>
+                    <a href="login.html"
+                        class="block w-full px-6 py-2 rounded-lg border-2 border-secondary text-secondary text-center">Login</a>
+                    <a href="contact.html"
+                        class="block w-full px-6 py-2 rounded-lg bg-gradient-to-r from-secondary to-accent text-white text-center whitespace-nowrap">Get
+                        Started</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section - Split Layout -->
+    <section class="relative min-h-screen bg-cover bg-center bg-no-repeat py-20 hero-section flex items-center"
+        style="background-image: url('https://img.freepik.com/premium-photo/seo-search-engine-optimization-business-concept_31965-4355.jpg?w=2000');">
+        <div class="absolute inset-0 bg-primary/80 backdrop-blur-sm"></div>
+        <!-- Animated Background Particles -->
+        <canvas id="hero-particles" class="absolute inset-0"></canvas>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Left Content -->
+                <div class="animate-on-scroll text-white">
+                    <h1 class="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                        Corporate <span class="text-secondary">SEO Excellence</span>
+                    </h1>
+                    <p class="text-xl text-gray-300 mb-8">
+                        Enterprise-level SEO strategies designed for Fortune 500 companies. Scale your organic presence
+                        with data-driven methodologies and proven frameworks.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="contact.html"
+                            class="px-8 py-4 rounded-xl bg-gradient-to-r from-secondary to-accent text-white font-semibold text-lg hover:shadow-2xl hover:shadow-secondary/50 transition-all transform hover:scale-105">
+                            Schedule Consultation
+                        </a>
+                        <a href="case-studies.html"
+                            class="px-8 py-4 rounded-xl glass-card text-white font-semibold text-lg hover:bg-white/20 transition-all border-2 border-white/30">
+                            View Case Studies
+                        </a>
+                    </div>
+
+                    <div class="mt-12 grid grid-cols-3 gap-6">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-secondary">Fortune</div>
+                            <div class="text-sm text-gray-400">500 Trusted</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-accent">15+</div>
+                            <div class="text-sm text-gray-400">Countries</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-secondary">$500M+</div>
+                            <div class="text-sm text-gray-400">Revenue Generated</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Content - Illustration -->
+                <div class="relative hidden lg:block animate-float">
+                    <div class="relative w-full aspect-square">
+                        <div class="absolute inset-0 glass-card rounded-3xl p-8 transform rotate-6"></div>
+                        <div
+                            class="relative glass-card rounded-3xl p-8 bg-gradient-to-br from-secondary/20 to-accent/20">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=600&fit=crop"
+                                alt="SEO Analytics Dashboard" class="rounded-2xl shadow-2xl w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Preview Section -->
+    <section class="py-20 bg-white dark:bg-primary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="animate-on-scroll">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop"
+                        alt="Team Meeting" class="rounded-2xl shadow-2xl">
+                </div>
+                <div class="animate-on-scroll">
+                    <h2 class="text-4xl lg:text-5xl font-bold mb-6">
+                        Why Choose <span class="text-accent">SEO Pro?</span>
+                    </h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">
+                        With over a decade of experience in search engine optimization, we've developed proprietary
+                        methodologies that deliver consistent, measurable results for enterprise clients.
+                    </p>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-secondary text-xl mt-1"></i>
+                            <div>
+                                <strong class="block mb-1">Data-Driven Strategies</strong>
+                                <span class="text-gray-600 dark:text-gray-400">Advanced analytics and AI-powered
+                                    insights</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-secondary text-xl mt-1"></i>
+                            <div>
+                                <strong class="block mb-1">Dedicated Account Team</strong>
+                                <span class="text-gray-600 dark:text-gray-400">SEO specialists assigned to your
+                                    project</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-secondary text-xl mt-1"></i>
+                            <div>
+                                <strong class="block mb-1">Transparent Reporting</strong>
+                                <span class="text-gray-600 dark:text-gray-400">Real-time dashboards and monthly
+                                    reports</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-secondary text-xl mt-1"></i>
+                            <div>
+                                <strong class="block mb-1">White-Hat Techniques</strong>
+                                <span class="text-gray-600 dark:text-gray-400">Google-compliant, sustainable
+                                    growth</span>
+                            </div>
+                        </li>
+                    </ul>
+                    <a href="about.html"
+                        class="inline-block px-8 py-4 rounded-xl bg-gradient-to-r from-secondary to-accent text-white font-semibold hover:shadow-xl transition-all">
+                        Learn More About Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEO Workflow Steps -->
+    <section class="py-20 gradient-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-4xl lg:text-5xl font-bold mb-4 text-white">
+                    Our Proven <span class="text-secondary">SEO Process</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    A systematic approach to dominating search rankings
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Step 1 -->
+                <div class="relative group animate-on-scroll">
+                    <div class="glass-card rounded-2xl p-8 h-full hover:bg-white/10 transition-all">
+                        <div
+                            class="w-16 h-16 bg-secondary rounded-full flex items-center justify-center text-2xl font-bold text-white mb-6">
+                            1</div>
+                        <h3 class="text-2xl font-bold mb-4 text-white">Audit & Analysis</h3>
+                        <p class="text-gray-300">Comprehensive website audit to identify technical issues, content gaps,
+                            and optimization opportunities.</p>
+                        
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative group animate-on-scroll">
+                    <div class="glass-card rounded-2xl p-8 h-full hover:bg-white/10 transition-all">
+                        <div
+                            class="w-16 h-16 bg-accent rounded-full flex items-center justify-center text-2xl font-bold text-white mb-6">
+                            2</div>
+                        <h3 class="text-2xl font-bold mb-4 text-white">Strategy </h3>
+                        <p class="text-gray-300">Custom SEO roadmap tailored to your business goals, competition, and
+                            target audience.</p>
+                        
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative group animate-on-scroll">
+                    <div class="glass-card rounded-2xl p-8 h-full hover:bg-white/10 transition-all">
+                        <div
+                            class="w-16 h-16 bg-secondary rounded-full flex items-center justify-center text-2xl font-bold text-white mb-6">
+                            3</div>
+                        <h3 class="text-2xl font-bold mb-4 text-white">Implementation</h3>
+                        <p class="text-gray-300">Execute optimization across technical, on-page, and off-page factors
+                            with precision.</p>
+                        
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="relative group animate-on-scroll">
+                    <div class="glass-card rounded-2xl p-8 h-full hover:bg-white/10 transition-all">
+                        <div
+                            class="w-16 h-16 bg-accent rounded-full flex items-center justify-center text-2xl font-bold text-white mb-6">
+                            4</div>
+                        <h3 class="text-2xl font-bold mb-4 text-white">Growth & Scale</h3>
+                        <p class="text-gray-300">Monitor performance, refine strategies, and scale successful tactics
+                            for maximum ROI.</p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Study Highlights -->
+    <section class="py-20 bg-white dark:bg-primary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-4xl lg:text-5xl font-bold mb-4">
+                    Featured <span class="text-secondary">Success Stories</span>
+                </h2>
+                <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+                    Real results from enterprise clients
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Case Study 1 -->
+                <div
+                    class="group rounded-2xl overflow-hidden bg-gray-50 dark:bg-gray-800 shadow-lg animate-on-scroll cursor-pointer">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop"
+                            alt="E-commerce Growth"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-8">
+                        <div class="flex items-center mb-4">
+                            <span
+                                class="px-4 py-2 bg-secondary/20 text-secondary rounded-full text-sm font-semibold">E-commerce</span>
+                            <span class="ms-4 text-gray-500"><i class="fas fa-calendar me-2"></i>2025</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 group-hover:text-secondary transition-colors">TechGear
+                            E-commerce SEO</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-6">
+                            Increased organic traffic by 450% and revenue by $2.3M within 8 months through comprehensive
+                            SEO strategy.
+                        </p>
+                        <div class="grid grid-cols-3 gap-4 mb-6">
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-secondary">+450%</div>
+                                <div class="text-xs text-gray-500">Traffic Growth</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-accent">Top 3</div>
+                                <div class="text-xs text-gray-500">Avg. Position</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-secondary">$2.3M</div>
+                                <div class="text-xs text-gray-500">Revenue Increase</div>
+                            </div>
+                        </div>
+                        <a href="case-studies.html"
+                            class="inline-flex items-center text-secondary font-semibold hover:translate-x-2 transition-transform">
+                            Read Case Study <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Case Study 2 -->
+                <div
+                    class="group rounded-2xl overflow-hidden bg-gray-50 dark:bg-gray-800 shadow-lg animate-on-scroll cursor-pointer">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop"
+                            alt="SaaS Company Growth"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-8">
+                        <div class="flex items-center mb-4">
+                            <span
+                                class="px-4 py-2 bg-accent/20 text-accent rounded-full text-sm font-semibold">SaaS</span>
+                            <span class="ms-4 text-gray-500"><i class="fas fa-calendar me-2"></i>2025</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 group-hover:text-accent transition-colors">CloudSoft SaaS SEO
+                            Campaign</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-6">
+                            Achieved 600% increase in demo requests and positioned client as industry thought leader.
+                        </p>
+                        <div class="grid grid-cols-3 gap-4 mb-6">
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-accent">+600%</div>
+                                <div class="text-xs text-gray-500">Lead Growth</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-secondary">#1</div>
+                                <div class="text-xs text-gray-500">Ranking Achieved</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-accent">10x</div>
+                                <div class="text-xs text-gray-500">ROI Delivered</div>
+                            </div>
+                        </div>
+                        <a href="case-studies.html"
+                            class="inline-flex items-center text-accent font-semibold hover:translate-x-2 transition-transform">
+                            Read Case Study <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="case-studies.html"
+                    class="inline-block px-8 py-4 rounded-xl border-2 border-secondary text-secondary hover:bg-secondary hover:text-white transition-all font-semibold">
+                    View All Case Studies
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 gradient-bg">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="glass-card rounded-3xl p-12 animate-on-scroll">
+                <h2 class="text-4xl lg:text-5xl font-bold mb-6 text-white">
+                    Ready to <span class="text-secondary">Scale</span> Your Business?
+                </h2>
+                <p class="text-xl text-gray-300 mb-8">
+                    Partner with the SEO agency trusted by Fortune 500 companies.
+                </p>
+                <a href="contact.html"
+                    class="inline-block px-8 py-4 rounded-xl bg-gradient-to-r from-secondary to-accent text-white font-semibold text-lg hover:shadow-2xl hover:shadow-secondary/50 transition-all transform hover:scale-105">
+                    Schedule Your Free Strategy Session
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Same as index.html) -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <div>
+                    <div class="flex items-center space-x-2 mb-6">
+                        <div
+                            class="w-10 h-10 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center">
+                            <i class="fas fa-chart-line text-white text-xl"></i>
+                        </div>
+                        <span class="text-2xl font-bold">SEO Pro</span>
+                    </div>
+                    <p class="text-gray-400 mb-6">Professional SEO services to help your business grow online.</p>
+                    <div class="flex space-x-4">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-secondary transition-colors"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-secondary transition-colors"><i
+                                class="fab fa-twitter"></i></a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-secondary transition-colors"><i
+                                class="fab fa-linkedin-in"></i></a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-secondary transition-colors"><i
+                                class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="about.html" class="text-gray-400 hover:text-secondary transition-colors">About
+                                Us</a></li>
+                        <li><a href="services.html"
+                                class="text-gray-400 hover:text-secondary transition-colors">Services</a></li>
+                        <li><a href="case-studies.html"
+                                class="text-gray-400 hover:text-secondary transition-colors">Case Studies</a></li>
+                        <li><a href="pricing.html"
+                                class="text-gray-400 hover:text-secondary transition-colors">Pricing</a></li>
+                        <li><a href="contact.html"
+                                class="text-gray-400 hover:text-secondary transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Services</h3>
+                    <ul class="space-y-3">
+                        <li><a href="services.html" class="text-gray-400 hover:text-secondary transition-colors">On-Page
+                                SEO</a></li>
+                        <li><a href="services.html"
+                                class="text-gray-400 hover:text-secondary transition-colors">Off-Page SEO</a></li>
+                        <li><a href="services.html"
+                                class="text-gray-400 hover:text-secondary transition-colors">Technical SEO</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-secondary transition-colors">Local
+                                SEO</a></li>
+                        <li><a href="services.html"
+                                class="text-gray-400 hover:text-secondary transition-colors">E-commerce SEO</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Contact Us</h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-start space-x-3"><i class="fas fa-map-marker-alt mt-1"></i><span>123 SEO
+                                Street, Digital City, DC 12345</span></li>
+                        <li class="flex items-center space-x-3"><i class="fas fa-phone"></i><span>+1 (234)
+                                567-890</span></li>
+                        <li class="flex items-center space-x-3"><i
+                                class="fas fa-envelope"></i><span>hello@seopro.com</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">&copy; 2026 SEO Pro. All rights reserved.</p>
+                <div class="flex space-x-6 text-sm">
+                    <a href="#" class="text-gray-400 hover:text-secondary transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-secondary transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

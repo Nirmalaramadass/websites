@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | SEO Pro - Leading SEO Agency</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta name="description"
+        content="Learn about SEO Pro's mission, vision, and team of SEO experts dedicated to helping businesses grow online.">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Emoji Icon Styles -->
+    <link rel="stylesheet" href="assets/css/image-icons.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0f172a',
+                        secondary: '#22c55e',
+                        accent: '#06b6d4'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        [dir="rtl"] {
+            direction: rtl;
+            text-align: right;
+        }
+
+        [dir="rtl"] .flex {
+            flex-direction: row-reverse;
+        }
+    </style>
+    <style>
+        /* Navbar action buttons should match height across pages */
+        #navbar a[href="login.html"],
+        #navbar a[href="contact.html"],
+        #mobile-menu a[href="login.html"],
+        #mobile-menu a[href="contact.html"] {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 3rem;
+            height: 3rem;
+            line-height: 1;
+            box-sizing: border-box;
+            white-space: nowrap;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        /* Hero sections should use 600 weight, section headings should be more moderate */
+        .hero-section h1,
+        .hero-section h2,
+        .hero-section h3 {
+            font-weight: 600 !important;
+        }
+
+        section:not(.hero-section) h2,
+        section:not(.hero-section) h3 {
+            font-weight: 500 !important;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 dark:bg-primary text-gray-900 dark:text-white transition-all duration-300">
+
+    <!-- Navbar -->
+    <nav id="navbar"
+        class="fixed top-0 w-full z-50 bg-white/80 dark:bg-primary/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center space-x-2">
+                    <div
+                        class="w-10 h-10 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center">
+                        <i class="fas fa-chart-line text-white text-xl"></i>
+                    </div>
+                    <span
+                        class="text-2xl font-bold bg-gradient-to-r from-secondary to-accent bg-clip-text text-transparent whitespace-nowrap">SEO
+                        Pro</span>
+                </div>
+
+                <div class="hidden xl:flex items-center space-x-8 rtl:space-x-reverse ml-12 rtl:ml-0 rtl:mr-12">
+                    <div class="relative">
+                        <button type="button"
+                            class="nav-dropdown-toggle inline-flex items-center gap-2 hover:text-secondary transition-colors"
+                            data-dropdown="home-dropdown">
+                            Home <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div id="home-dropdown"
+                            class="nav-dropdown-menu hidden absolute top-full left-0 mt-3 w-44 rounded-lg bg-white dark:bg-primary border border-gray-200 dark:border-gray-700 shadow-xl p-2">
+                            <a href="index.html"
+                                class="block px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors whitespace-nowrap">Home
+                                1</a>
+                            <a href="index2.html"
+                                class="block px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors whitespace-nowrap">Home
+                                2</a>
+                        </div>
+                    </div>
+                    <a href="services.html" class="hover:text-secondary transition-colors">Services</a>
+                    <a href="about.html"
+                        class="text-secondary font-semibold hover:text-accent transition-colors">About</a>
+                    <a href="case-studies.html" class="hover:text-secondary transition-colors whitespace-nowrap">Case
+                        Studies</a>
+                    <a href="pricing.html" class="hover:text-secondary transition-colors">Pricing</a>
+                    <a href="contact.html" class="hover:text-secondary transition-colors">Contact</a>
+                    <div class="relative">
+                        <button type="button"
+                            class="nav-dropdown-toggle inline-flex items-center gap-2 hover:text-secondary transition-colors"
+                            data-dropdown="dashboard-dropdown">
+                            Dashboard <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div id="dashboard-dropdown"
+                            class="nav-dropdown-menu hidden absolute top-full left-0 mt-3 w-52 rounded-lg bg-white dark:bg-primary border border-gray-200 dark:border-gray-700 shadow-xl p-2">
+                            <a href="user-dashboard.html"
+                                class="block px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors whitespace-nowrap">User
+                                Dashboard</a>
+                            <a href="admin-dashboard.html"
+                                class="block px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors whitespace-nowrap">Admin
+                                Dashboard</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hidden xl:flex items-center gap-4 ms-8">
+                    <button id="rtl-toggle"
+                        class="p-2 h-10 w-12 rounded-lg glass-modern hover:bg-white/20 transition-all font-bold text-sm tracking-tighter"
+                        title="Switch to RTL" aria-label="Toggle RTL/LTR">
+                        RTL
+                    </button>
+                    <a href="login.html"
+                        class="px-6 py-2 rounded-lg border-2 border-secondary text-secondary hover:bg-secondary hover:text-white transition-all font-semibold">Login</a>
+                    <a href="contact.html"
+                        class="px-6 py-2 rounded-lg bg-gradient-to-r from-secondary to-accent text-white hover:shadow-lg hover:shadow-secondary/50 transition-all font-semibold transform hover:scale-105 whitespace-nowrap">Get
+                        Started</a>
+                </div>
+
+                <button id="menu-btn"
+                    class="xl:hidden p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition-all">
+                    <div class="w-6 h-5 relative">
+                        <span class="bar absolute w-full h-0.5 bg-current top-0 left-0 transition-all"></span>
+                        <span class="bar absolute w-full h-0.5 bg-current top-1/2 left-0 transition-all"></span>
+                        <span class="bar absolute w-full h-0.5 bg-current bottom-0 left-0 transition-all"></span>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu"
+            class="hidden xl:hidden bg-white dark:bg-primary border-t border-gray-200 dark:border-gray-800">
+            <div class="px-4 py-4 space-y-4">
+                <details class="group">
+                    <summary class="list-none flex items-center justify-between cursor-pointer hover:text-secondary">
+                        Home
+                        <i class="fas fa-chevron-down text-xs"></i>
+                    </summary>
+                    <div class="mt-2 ml-4 space-y-2">
+                        <a href="index.html" class="block hover:text-secondary">Home 1</a>
+                        <a href="index2.html" class="block hover:text-secondary">Home 2</a>
+                    </div>
+                </details>
+                <a href="services.html" class="block hover:text-secondary">Services</a>
+                <a href="about.html" class="block text-secondary font-semibold">About</a>
+                <a href="case-studies.html" class="block hover:text-secondary">Case Studies</a>
+                <a href="pricing.html" class="block hover:text-secondary">Pricing</a>
+                <a href="contact.html" class="block hover:text-secondary">Contact</a>
+                <details class="group">
+                    <summary class="list-none flex items-center justify-between cursor-pointer hover:text-secondary">
+                        Dashboard
+                        <i class="fas fa-chevron-down text-xs"></i>
+                    </summary>
+                    <div class="mt-2 ml-4 space-y-2">
+                        <a href="user-dashboard.html" class="block hover:text-secondary">User Dashboard</a>
+                        <a href="admin-dashboard.html" class="block hover:text-secondary">Admin Dashboard</a>
+                    </div>
+                </details>
+                <div class="pt-4 border-t border-gray-200 dark:border-gray-800 space-y-3">
+                    <button id="rtl-toggle-mobile"
+                        class="w-full p-3 rounded-xl glass-modern text-center font-bold">RTL/LTR Mode</button>
+                    <a href="login.html"
+                        class="block w-full px-6 py-2 rounded-lg border-2 border-secondary text-secondary text-center">Login</a>
+                    <a href="contact.html"
+                        class="block w-full px-6 py-2 rounded-lg bg-gradient-to-r from-secondary to-accent text-white text-center whitespace-nowrap">Get
+                        Started</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="gradient-bg pt-32 pb-20 relative overflow-hidden">
+        <canvas id="hero-particles"></canvas>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <h1 class="text-5xl lg:text-6xl font-bold mb-6 text-white animate-on-scroll">
+                About <span class="text-accent">SEO Pro</span>
+            </h1>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto animate-on-scroll">
+                Your trusted partner in digital growth and search engine optimization excellence
+            </p>
+        </div>
+    </section>
+
+    <!-- SEO Achievements & Stats -->
+    <section class="py-20 bg-slate-900 dark:bg-slate-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-4xl lg:text-5xl font-bold mb-4 text-white">
+                    Our <span class="text-secondary">Achievements</span>
+                </h2>
+                <p class="text-xl text-gray-300">By the numbers</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center p-6 glass-card rounded-2xl animate-on-scroll">
+                    <div class="text-5xl font-bold text-secondary mb-2" data-target="500">500+</div>
+                    <div class="text-gray-300 text-lg">Clients Worldwide</div>
+                </div>
+                <div class="text-center p-6 glass-card rounded-2xl animate-on-scroll">
+                    <div class="text-5xl font-bold text-accent mb-2" data-target="1500">1,500+</div>
+                    <div class="text-gray-300 text-lg">Projects Completed</div>
+                </div>
+                <div class="text-center p-6 glass-card rounded-2xl animate-on-scroll">
+                    <div class="text-5xl font-bold text-secondary mb-2" data-target="98">98%</div>
+                    <div class="text-gray-300 text-lg">Client Retention %</div>
+                </div>
+                <div class="text-center p-6 glass-card rounded-2xl animate-on-scroll">
+                    <div class="text-5xl font-bold text-accent mb-2" data-target="50">50+</div>
+                    <div class="text-gray-300 text-lg">Team Members</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Overview -->
+    <section class="py-20 bg-white dark:bg-primary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="animate-on-scroll relative group">
+                    <div
+                        class="absolute -inset-4 bg-gradient-to-tr from-secondary/20 to-accent/20 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-500 opacity-50">
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop"
+                        alt="Our Team" class="relative rounded-3xl shadow-2xl border border-white/10">
+                    <div
+                        class="absolute -bottom-6 -right-6 p-6 glass-modern rounded-2xl border border-white/20 animate-float shadow-xl btn-magnetic">
+                        <div class="text-3xl font-bold text-secondary">8+</div>
+                        <div class="text-xs uppercase tracking-widest font-bold">Years of Excellence</div>
+                    </div>
+                </div>
+                <div class="animate-on-scroll">
+                    <h2 class="text-4xl lg:text-5xl font-bold mb-6">
+                        Who We <span class="text-secondary">Are</span>
+                    </h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">
+                        Founded in 2016, SEO Pro has grown from a small startup to one of the most trusted SEO agencies
+                        globally. We've helped over 500 businesses achieve top rankings and drive sustainable organic
+                        growth.
+                    </p>
+                    <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">
+                        Our team of certified SEO specialists, content strategists, and technical experts work together
+                        to deliver comprehensive solutions that produce real, measurable results.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6 mt-8">
+                        <div class="p-6 bg-gray-50 dark:bg-gray-800 rounded-xl">
+                            <div class="text-4xl font-bold text-secondary mb-2">500+</div>
+                            <div class="text-gray-600 dark:text-gray-400">Clients Served</div>
+                        </div>
+                        <div class="p-6 bg-gray-50 dark:bg-gray-800 rounded-xl">
+                            <div class="text-4xl font-bold text-accent mb-2">10+</div>
+                            <div class="text-gray-600 dark:text-gray-400">Years Experience</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="py-20 gradient-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="glass-card rounded-2xl p-8 animate-on-scroll">
+                    <div class="w-16 h-16 bg-secondary/20 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-bullseye text-3xl text-secondary"></i>
+                    </div>
+                    <h3 class="text-3xl font-bold mb-4 text-white">Our Mission</h3>
+                    <p class="text-gray-300 text-lg">
+                        To empower businesses of all sizes with enterprise-level SEO strategies, making search engine
+                        optimization accessible, transparent, and results-driven.
+                    </p>
+                </div>
+
+                <div class="glass-card rounded-2xl p-8 animate-on-scroll">
+                    <div class="w-16 h-16 bg-accent/20 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-eye text-3xl text-accent"></i>
+                    </div>
+                    <h3 class="text-3xl font-bold mb-4 text-white">Our Vision</h3>
+                    <p class="text-gray-300 text-lg">
+                        To become the world's most trusted SEO partner, recognized for delivering exceptional results
+                        through innovation, transparency, and unwavering commitment to client success.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="py-20 bg-white dark:bg-primary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-4xl lg:text-5xl font-bold mb-4">
+                    Our <span class="text-secondary">Journey</span>
+                </h2>
+                <p class="text-xl text-gray-600 dark:text-gray-400">A decade of growth and excellence</p>
+            </div>
+
+            <div class="relative">
+                <!-- Timeline Line -->
+                <div
+                    class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-secondary to-accent hidden md:block">
+                </div>
+
+                <!-- Timeline Items -->
+                <div class="space-y-12">
+                    <!-- 2016 -->
+                    <div class="relative grid md:grid-cols-[1fr_auto_1fr] gap-8 items-center animate-on-scroll"
+                        data-delay="0ms">
+                        <div class="md:text-right md:pr-12 group">
+                            <div
+                                class="glass-modern p-6 rounded-2xl border border-gray-100 dark:border-gray-800 hover-lift group-hover:border-secondary/50 card-shine">
+                                <h3 class="text-3xl font-bold text-secondary mb-2">2016</h3>
+                                <p class="text-gray-600 dark:text-gray-400">SEO Pro founded with a team of 3 passionate
+                                    SEO specialists</p>
+                            </div>
+                        </div>
+                        <div class="hidden md:flex items-center justify-center">
+                            <div
+                                class="w-10 h-10 bg-secondary rounded-full ring-8 ring-secondary/20 flex items-center justify-center text-white z-10 shadow-lg shadow-secondary/40">
+                                <i class="fas fa-seedling"></i>
+                            </div>
+                        </div>
+                        <div></div>
+                    </div>
+
+                    <!-- 2018 -->
+                    <div class="relative grid md:grid-cols-[1fr_auto_1fr] gap-8 items-center animate-on-scroll"
+                        data-delay="150ms">
+                        <div></div>
+                        <div class="hidden md:flex items-center justify-center">
+                            <div
+                                class="w-10 h-10 bg-accent rounded-full ring-8 ring-accent/20 flex items-center justify-center text-white z-10 shadow-lg shadow-accent/40">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                        </div>
+                        <div class="md:pl-12 group">
+                            <div
+                                class="glass-modern p-6 rounded-2xl border border-gray-100 dark:border-gray-800 hover-lift group-hover:border-accent/50">
+                                <h3 class="text-3xl font-bold text-accent mb-2">2018</h3>
+                                <p class="text-gray-600 dark:text-gray-400">Reached 100+ clients milestone and expanded
+                                    team to 15 members</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2020 -->
+                    <div class="relative grid md:grid-cols-[1fr_auto_1fr] gap-8 items-center animate-on-scroll"
+                        data-delay="300ms">
+                        <div class="md:text-right md:pr-12 group">
+                            <div
+                                class="glass-modern p-6 rounded-2xl border border-gray-100 dark:border-gray-800 hover-lift group-hover:border-secondary/50 card-shine">
+                                <h3 class="text-3xl font-bold text-secondary mb-2">2020</h3>
+                                <p class="text-gray-600 dark:text-gray-400">Launched proprietary SEO analytics platform
+                                    and AI-driven tools</p>
+                            </div>
+                        </div>
+                        <div class="hidden md:flex items-center justify-center">
+                            <div
+                                class="w-10 h-10 bg-secondary rounded-full ring-8 ring-secondary/20 flex items-center justify-center text-white z-10 shadow-lg shadow-secondary/40">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                        </div>
+                        <div></div>
+                    </div>
+
+                    <!-- 2022 -->
+                    <div class="relative grid md:grid-cols-[1fr_auto_1fr] gap-8 items-center animate-on-scroll"
+                        data-delay="450ms">
+                        <div></div>
+                        <div class="hidden md:flex items-center justify-center">
+                            <div
+                                class="w-10 h-10 bg-accent rounded-full ring-8 ring-accent/20 flex items-center justify-center text-white z-10 shadow-lg shadow-accent/40">
+                                <i class="fas fa-globe-americas"></i>
+                            </div>
+                        </div>
+                        <div class="md:pl-12 group">
+                            <div
+                                class="glass-modern p-6 rounded-2xl border border-gray-100 dark:border-gray-800 hover-lift group-hover:border-accent/50">
+                                <h3 class="text-3xl font-bold text-accent mb-2">2022</h3>
+                                <p class="text-gray-600 dark:text-gray-400">Expanded internationally, opening offices in
+                                    London and Singapore</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2024 -->
+                    <div class="relative grid md:grid-cols-[1fr_auto_1fr] gap-8 items-center animate-on-scroll"
+                        data-delay="600ms">
+                        <div class="md:text-right md:pr-12 group">
+                            <div
+                                class="glass-modern p-6 rounded-2xl border border-gray-100 dark:border-gray-800 hover-lift group-hover:border-secondary/50">
+                                <h3 class="text-3xl font-bold text-secondary mb-2">2024</h3>
+                                <p class="text-gray-600 dark:text-gray-400">Surpassed 500+ clients and won multiple
+                                    industry awards</p>
+                            </div>
+                        </div>
+                        <div class="hidden md:flex items-center justify-center">
+                            <div
+                                class="w-10 h-10 bg-secondary rounded-full ring-8 ring-secondary/20 flex items-center justify-center text-white z-10 shadow-lg shadow-secondary/40">
+                                <i class="fas fa-award"></i>
+                            </div>
+                        </div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Members Section -->
+    <section class="py-20 bg-white dark:bg-primary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-4xl lg:text-5xl font-bold mb-4">
+                    Meet Our <span class="text-accent">Leadership</span>
+                </h2>
+                <p class="text-xl text-gray-600 dark:text-gray-400">The experts driving your success</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Team Member 1 -->
+                <div class="text-center group animate-on-scroll">
+                    <div class="relative mb-6 overflow-hidden rounded-2xl">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop"
+                            alt="CEO"
+                            class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-secondary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
+                            <div class="flex space-x-4">
+                                <a href="#"
+                                    class="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center hover:bg-secondary transition-colors"><i
+                                        class="fab fa-linkedin-in text-white"></i></a>
+                                <a href="#"
+                                    class="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center hover:bg-secondary transition-colors"><i
+                                        class="fab fa-twitter text-white"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">David Chen</h3>
+                    <p class="text-secondary font-semibold">CEO & Founder</p>
+                    <p class="text-sm text-gray-500 mt-2">15+ years in SEO</p>
+                </div>
+
+                <!-- Team Member 2 -->
+                <div class="text-center group animate-on-scroll">
+                    <div class="relative mb-6 overflow-hidden rounded-2xl">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop"
+                            alt="CTO"
+                            class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-accent/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
+                            <div class="flex space-x-4">
+                                <a href="#"
+                                    class="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center hover:bg-accent transition-colors"><i
+                                        class="fab fa-linkedin-in text-white"></i></a>
+                                <a href="#"
+                                    class="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center hover:bg-accent transition-colors"><i
+                                        class="fab fa-twitter text-white"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Sarah Johnson</h3>
+                    <p class="text-accent font-semibold">Chief Technology Officer</p>
+                    <p class="text-sm text-gray-500 mt-2">Technical SEO Expert</p>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div class="text-center group animate-on-scroll">
+                    <div class="relative mb-6 overflow-hidden rounded-2xl">
+                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop"
+                            alt="Head of Strategy"
+                            class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-secondary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
+                            <div class="flex space-x-4">
+                                <a href="#"
+                                    class="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center hover:bg-secondary transition-colors"><i
+                                        class="fab fa-linkedin-in text-white"></i></a>
+                                <a href="#"
+                                    class="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center hover:bg-secondary transition-colors"><i
+                                        class="fab fa-twitter text-white"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Michael Roberts</h3>
+                    <p class="text-secondary font-semibold">Head of Strategy</p>
+                    <p class="text-sm text-gray-500 mt-2">Content Marketing Guru</p>
+                </div>
+
+                <!-- Team Member 4 -->
+                <div class="text-center group animate-on-scroll">
+                    <div class="relative mb-6 overflow-hidden rounded-2xl">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop"
+                            alt="Operations Director"
+                            class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-accent/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
+                            <div class="flex space-x-4">
+                                <a href="#"
+                                    class="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center hover:bg-accent transition-colors"><i
+                                        class="fab fa-linkedin-in text-white"></i></a>
+                                <a href="#"
+                                    class="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center hover:bg-accent transition-colors"><i
+                                        class="fab fa-twitter text-white"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Emily Watson</h3>
+                    <p class="text-accent font-semibold">Operations Director</p>
+                    <p class="text-sm text-gray-500 mt-2">Client Success Champion</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <div>
+                    <div class="flex items-center space-x-2 mb-6">
+                        <div
+                            class="w-10 h-10 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center">
+                            <i class="fas fa-chart-line text-white text-xl"></i>
+                        </div>
+                        <span class="text-2xl font-bold">SEO Pro</span>
+                    </div>
+                    <p class="text-gray-400 mb-6">Professional SEO services to help your business grow online.</p>
+                    <div class="flex space-x-4">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-secondary transition-colors"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-secondary transition-colors"><i
+                                class="fab fa-twitter"></i></a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-secondary transition-colors"><i
+                                class="fab fa-linkedin-in"></i></a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-secondary transition-colors"><i
+                                class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="about.html" class="text-gray-400 hover:text-secondary transition-colors">About
+                                Us</a></li>
+                        <li><a href="services.html"
+                                class="text-gray-400 hover:text-secondary transition-colors">Services</a></li>
+                        <li><a href="case-studies.html"
+                                class="text-gray-400 hover:text-secondary transition-colors">Case Studies</a></li>
+                        <li><a href="pricing.html"
+                                class="text-gray-400 hover:text-secondary transition-colors">Pricing</a></li>
+                        <li><a href="contact.html"
+                                class="text-gray-400 hover:text-secondary transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Services</h3>
+                    <ul class="space-y-3">
+                        <li><a href="services.html" class="text-gray-400 hover:text-secondary transition-colors">On-Page
+                                SEO</a></li>
+                        <li><a href="services.html"
+                                class="text-gray-400 hover:text-secondary transition-colors">Off-Page SEO</a></li>
+                        <li><a href="services.html"
+                                class="text-gray-400 hover:text-secondary transition-colors">Technical SEO</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-secondary transition-colors">Local
+                                SEO</a></li>
+                        <li><a href="services.html"
+                                class="text-gray-400 hover:text-secondary transition-colors">E-commerce SEO</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Contact Us</h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-start space-x-3"><i class="fas fa-map-marker-alt mt-1"></i><span>123 SEO
+                                Street, Digital City, DC 12345</span></li>
+                        <li class="flex items-center space-x-3"><i class="fas fa-phone"></i><span>+1 (234)
+                                567-890</span></li>
+                        <li class="flex items-center space-x-3"><i
+                                class="fas fa-envelope"></i><span>hello@seopro.com</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">&copy; 2026 SEO Pro. All rights reserved.</p>
+                <div class="flex space-x-6 text-sm">
+                    <a href="#" class="text-gray-400 hover:text-secondary transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-secondary transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            initCounters();
+        });
+    </script>
+</body>
+
+</html>

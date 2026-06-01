@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - SEO Pro</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/css/image-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0f172a',
+                        secondary: '#22c55e',
+                        accent: '#06b6d4'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        :root {
+            --sidebar-width: 17.5rem;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+
+        [dir="rtl"] {
+            direction: rtl;
+            text-align: right;
+        }
+
+        .dashboard-shell {
+            min-height: 100vh;
+            background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
+            overflow-x: hidden;
+        }
+
+        .sidebar {
+            position: fixed;
+            inset: 0 auto 0 0;
+            width: var(--sidebar-width);
+            display: flex;
+            flex-direction: column;
+            border-right: 1px solid rgba(148, 163, 184, 0.25);
+            background: #ffffff;
+            z-index: 50;
+            transition: transform .3s ease;
+            overflow-y: auto;
+        }
+
+        .main {
+            margin-left: var(--sidebar-width);
+            min-height: 100vh;
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        main,
+        section,
+        article {
+            min-width: 0;
+            max-width: 100%;
+        }
+
+        .chart-wrap {
+            position: relative;
+            width: 100%;
+            min-width: 0;
+            overflow: hidden;
+        }
+
+        canvas {
+            display: block !important;
+            width: 100% !important;
+            max-width: 100% !important;
+        }
+
+        [dir="rtl"] .sidebar {
+            inset: 0 0 0 auto;
+            border-right: 0;
+            border-left: 1px solid rgba(148, 163, 184, 0.25);
+        }
+
+        [dir="rtl"] .main {
+            margin-left: 0;
+            margin-right: var(--sidebar-width);
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+
+            .sidebar.open {
+                transform: translateX(0);
+            }
+
+            .main {
+                margin-left: 0;
+            }
+
+            [dir="rtl"] .sidebar {
+                transform: translateX(100%);
+            }
+
+            [dir="rtl"] .sidebar.open {
+                transform: translateX(0);
+            }
+
+            [dir="rtl"] .main {
+                margin-right: 0;
+            }
+        }
+
+        html.dark .dashboard-shell {
+            background: linear-gradient(180deg, #020617 0%, #0f172a 100%);
+            color: #e2e8f0;
+        }
+
+        html.dark .sidebar,
+        html.dark .main header,
+        html.dark .main article,
+        html.dark .main section,
+        html.dark .main table {
+            background-color: #0f172a !important;
+            color: #e2e8f0 !important;
+            border-color: #334155 !important;
+        }
+
+        html.dark .main h1,
+        html.dark .main h2,
+        html.dark .main th,
+        html.dark .main td,
+        html.dark .main p,
+        html.dark .main span,
+        html.dark .sidebar p,
+        html.dark .sidebar span,
+        html.dark .sidebar i {
+            color: #e2e8f0;
+        }
+
+        html.dark .text-gray-500 {
+            color: #94a3b8 !important;
+        }
+
+        html.dark .hover\:bg-gray-100:hover,
+        html.dark .bg-gray-100,
+        html.dark .hover\:bg-red-50:hover {
+            background-color: #1e293b !important;
+        }
+
+        html.dark .bg-green-100,
+        html.dark .bg-cyan-100,
+        html.dark .bg-orange-100,
+        html.dark .bg-yellow-100 {
+            background-color: #1e293b !important;
+        }
+
+        html.dark .text-green-600,
+        html.dark .text-green-700,
+        html.dark .text-cyan-600,
+        html.dark .text-cyan-700,
+        html.dark .text-orange-600,
+        html.dark .text-yellow-700,
+        html.dark .text-red-600 {
+            color: #22c55e !important;
+        }
+
+        html.dark .border-gray-100,
+        html.dark .border-gray-200 {
+            border-color: #334155 !important;
+        }
+    </style>
+</head>
+
+<body class="dashboard-shell text-gray-900">
+    <div id="overlay" class="fixed inset-0 bg-black/40 z-40 hidden xl:hidden" onclick="toggleSidebar()"></div>
+
+    <aside id="sidebar" class="sidebar">
+        <div class="p-6 border-b border-gray-200">
+            <a href="index.html" class="flex items-center gap-3">
+                <div
+                    class="w-10 h-10 rounded-xl bg-gradient-to-br from-secondary to-accent text-white flex items-center justify-center">
+                    <i class="fas fa-chart-line text-2xl"></i>
+                </div>
+                <div>
+                    <p class="font-bold text-xl whitespace-nowrap">SEO Pro</p>
+                    <p class="text-xs text-gray-500">Admin Panel</p>
+                </div>
+            </a>
+        </div>
+
+        <nav class="p-4 space-y-2 flex-1">
+            <a href="admin-dashboard.html"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl bg-secondary/10 text-secondary font-semibold">
+                <i class="fas fa-gauge-high text-2xl"></i>
+                <span>Overview</span>
+            </a>
+            <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-gray-100 transition-colors">
+                <i class="fas fa-users text-2xl"></i>
+                <span>Clients</span>
+            </a>
+            <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-gray-100 transition-colors">
+                <i class="fas fa-diagram-project text-2xl"></i>
+                <span>Projects</span>
+            </a>
+            <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-gray-100 transition-colors">
+                <i class="fas fa-file-lines text-2xl"></i>
+                <span>Reports</span>
+            </a>
+            <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-gray-100 transition-colors">
+                <i class="fas fa-gear text-2xl"></i>
+                <span>Settings</span>
+            </a>
+            <a href="user-dashboard.html"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-gray-100 transition-colors">
+                <i class="fas fa-user text-2xl"></i>
+                <span>User Dashboard</span>
+            </a>
+        </nav>
+
+        <div class="p-4 border-t border-gray-200">
+            <a href="login.html"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl text-red-600 hover:bg-red-50 transition-colors">
+
+                <span>Logout</span>
+            </a>
+        </div>
+    </aside>
+
+    <div class="main">
+        <header class="sticky top-0 z-30 bg-white/90 backdrop-blur border-b border-gray-200">
+            <div class="px-4 sm:px-6 py-4 flex items-center justify-between gap-3">
+                <div class="flex items-center gap-3 min-w-0">
+                    <button class="xl:hidden p-2 rounded-lg hover:bg-gray-100" onclick="toggleSidebar()">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                    <h1 class="text-lg sm:text-2xl font-bold truncate">Admin Dashboard</h1>
+                </div>
+
+                <div class="flex items-center gap-2 sm:gap-4">
+                    <button id="rtl-toggle"
+                        class="p-2 h-10 w-12 rounded-lg bg-gray-100 hover:bg-gray-200 font-bold text-sm tracking-tighter"
+                        title="Switch direction">
+                        RTL
+                    </button>
+                    <button class="relative p-2 rounded-lg hover:bg-gray-100">
+                        <i class="fas fa-bell text-2xl"></i>
+                        <span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-red-500"></span>
+                    </button>
+                    <div
+                        class="w-10 h-10 rounded-full bg-gradient-to-br from-secondary to-accent text-white font-bold flex items-center justify-center">
+                        AD</div>
+                </div>
+            </div>
+        </header>
+
+        <main class="p-4 sm:p-6 space-y-6">
+            <section class="grid sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-6">
+                <article class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
+                    <p class="text-sm text-gray-500">Total Clients</p>
+                    <p class="text-3xl font-bold mt-2">523</p>
+                    <p class="text-xs text-green-600 mt-1">+12.4% this month</p>
+                </article>
+                <article class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
+                    <p class="text-sm text-gray-500">Active Projects</p>
+                    <p class="text-3xl font-bold mt-2">1,847</p>
+                    <p class="text-xs text-green-600 mt-1">+8.1% this month</p>
+                </article>
+                <article class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
+                    <p class="text-sm text-gray-500">Revenue (YTD)</p>
+                    <p class="text-3xl font-bold mt-2">$847K</p>
+                    <p class="text-xs text-green-600 mt-1">+23% this quarter</p>
+                </article>
+                <article class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
+                    <p class="text-sm text-gray-500">Retention Rate</p>
+                    <p class="text-3xl font-bold mt-2">98.5%</p>
+                    <p class="text-xs text-green-600 mt-1">+3.6% this month</p>
+                </article>
+            </section>
+
+            <section class="grid xl:grid-cols-3 gap-6">
+                <article class="xl:col-span-2 bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-lg font-bold">Traffic Performance</h2>
+                        <span class="text-sm text-gray-500">Jan - Sep</span>
+                    </div>
+                    <div class="chart-wrap h-72"><canvas id="adminChart"></canvas></div>
+                </article>
+
+                <article class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
+                    <h2 class="text-lg font-bold mb-4">Recent Activity</h2>
+                    <div class="space-y-4">
+                        <div class="flex gap-3">
+                            <div
+                                class="w-9 h-9 rounded-full bg-green-100 text-green-600 flex items-center justify-center shrink-0">
+                                <i class="fas fa-user-plus"></i></div>
+                            <div class="min-w-0">
+                                <p class="font-semibold">New client joined</p>
+                                <p class="text-sm text-gray-500">TechStart Inc.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-3">
+                            <div
+                                class="w-9 h-9 rounded-full bg-cyan-100 text-cyan-600 flex items-center justify-center shrink-0">
+                                <i class="fas fa-file-circle-check"></i></div>
+                            <div class="min-w-0">
+                                <p class="font-semibold">Monthly report sent</p>
+                                <p class="text-sm text-gray-500">15 clients updated</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-3">
+                            <div
+                                class="w-9 h-9 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center shrink-0">
+                                <i class="fas fa-trophy"></i></div>
+                            <div class="min-w-0">
+                                <p class="font-semibold">Milestone achieved</p>
+                                <p class="text-sm text-gray-500">CloudSoft ranked #1</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <section class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
+                <h2 class="text-lg font-bold mb-4">Top Keywords</h2>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full text-sm">
+                        <thead>
+                            <tr class="border-b border-gray-200 text-left">
+                                <th class="py-3 px-2 sm:px-3">Keyword</th>
+                                <th class="py-3 px-2 sm:px-3 text-center">Position</th>
+                                <th class="py-3 px-2 sm:px-3 text-center">Change</th>
+                                <th class="py-3 px-2 sm:px-3 text-center">Volume</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-gray-100">
+                                <td class="py-3 px-2 sm:px-3">best SEO agency</td>
+                                <td class="py-3 px-2 sm:px-3 text-center"><span
+                                        class="px-2 py-1 rounded-full bg-green-100 text-green-700">#1</span></td>
+                                <td class="py-3 px-2 sm:px-3 text-center text-green-600"><i class="fas fa-arrow-up"></i>
+                                    2</td>
+                                <td class="py-3 px-2 sm:px-3 text-center">12,500</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-2 sm:px-3">technical SEO audit</td>
+                                <td class="py-3 px-2 sm:px-3 text-center"><span
+                                        class="px-2 py-1 rounded-full bg-yellow-100 text-yellow-700">#3</span></td>
+                                <td class="py-3 px-2 sm:px-3 text-center text-gray-500"><i class="fas fa-minus"></i> 0
+                                </td>
+                                <td class="py-3 px-2 sm:px-3 text-center">5,400</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        let adminChart;
+
+        function getAdminChartTheme() {
+            const isDark = document.documentElement.classList.contains('dark');
+            return {
+                tickColor: isDark ? '#94a3b8' : '#64748b',
+                gridColor: isDark ? 'rgba(71, 85, 105, .45)' : 'rgba(148, 163, 184, .2)'
+            };
+        }
+
+        function applyAdminChartTheme() {
+            if (!adminChart) return;
+
+            const theme = getAdminChartTheme();
+            adminChart.options.scales.x.ticks = { color: theme.tickColor };
+            adminChart.options.scales.y.ticks = { color: theme.tickColor };
+            adminChart.options.scales.y.grid.color = theme.gridColor;
+            adminChart.update();
+        }
+
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('open');
+            document.getElementById('overlay').classList.toggle('hidden');
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const theme = getAdminChartTheme();
+
+            adminChart = new Chart(document.getElementById('adminChart'), {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
+                    datasets: [{
+                        data: [12000, 19000, 25000, 35000, 48000, 62000, 78000, 95000, 115000],
+                        borderColor: '#22c55e',
+                        backgroundColor: 'rgba(34, 197, 94, 0.15)',
+                        fill: true,
+                        tension: 0.35
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        y: {
+                            ticks: { color: theme.tickColor },
+                            grid: { color: theme.gridColor }
+                        },
+                        x: {
+                            ticks: { color: theme.tickColor },
+                            grid: { display: false }
+                        }
+                    }
+                }
+            });
+
+            document.addEventListener('themechange', applyAdminChartTheme);
+        });
+    </script>
+</body>
+
+</html>

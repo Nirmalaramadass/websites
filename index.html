@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEO Pro - Boost Your Website Ranking | Professional SEO Services</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta name="description"
+        content="Professional SEO services to boost your website ranking and drive organic traffic. Get a free audit today!">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Emoji Icon Styles -->
+    <link rel="stylesheet" href="assets/css/image-icons.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0f172a',
+                        secondary: '#22c55e',
+                        accent: '#06b6d4'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%);
+        }
+
+        .hero-glow {
+            box-shadow: 0 0 100px rgba(34, 197, 94, 0.3),
+                0 0 200px rgba(6, 182, 212, 0.2);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .animate-pulse-slow {
+            animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        /* Floating Animation */
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* RTL Support */
+        [dir="rtl"] {
+            direction: rtl;
+            text-align: right;
+        }
+
+        [dir="rtl"] .flex {
+            flex-direction: row-reverse;
+        }
+
+        [dir="rtl"] .space-x-4>*+* {
+            margin-right: 1rem;
+            margin-left: 0;
+        }
+    </style>
+    <style>
+        /* Navbar action buttons should match height across pages */
+        /* Apply to desktop and mobile containers to keep buttons consistent */
+        #navbar a[href="login.html"],
+        #navbar a[href="contact.html"],
+        #mobile-menu a[href="login.html"],
+        #mobile-menu a[href="contact.html"] {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 3rem;
+            height: 3rem;
+            line-height: 1;
+            box-sizing: border-box;
+            white-space: nowrap;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        /* Hero sections should use 600 weight, section headings should be more moderate */
+        .hero-section h1,
+        .hero-section h2,
+        .hero-section h3 {
+            font-weight: 600 !important;
+        }
+
+        section:not(.hero-section) h2,
+        section:not(.hero-section) h3 {
+            font-weight: 500 !important;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 dark:bg-primary text-gray-900 dark:text-white transition-all duration-300">
+
+    <!-- Navbar -->
+    <nav id="navbar"
+        class="fixed top-0 w-full z-50 bg-white/80 dark:bg-primary/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2 group cursor-pointer">
+                    <div
+                        class="w-10 h-10 bg-gradient-to-br from-secondary to-accent rounded-xl flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-300 shadow-lg shadow-secondary/20">
+                        <i class="fas fa-chart-line text-white text-xl"></i>
+                    </div>
+                    <span
+                        class="text-2xl font-bold bg-gradient-to-r from-secondary to-accent bg-clip-text text-transparent tracking-tight whitespace-nowrap">SEO
+                        Pro</span>
+                </div>
+
+                <!-- Desktop Menu (visible at xl and above) -->
+                <div class="hidden xl:flex items-center space-x-8 rtl:space-x-reverse ml-12 rtl:ml-0 rtl:mr-12">
+                    <div class="relative">
+                        <button type="button"
+                            class="nav-dropdown-toggle inline-flex items-center gap-2 text-secondary font-semibold hover:text-accent transition-colors"
+                            data-dropdown="home-dropdown">
+                            Home <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div id="home-dropdown"
+                            class="nav-dropdown-menu hidden absolute top-full left-0 mt-3 w-44 rounded-lg bg-white dark:bg-primary border border-gray-200 dark:border-gray-700 shadow-xl p-2">
+                            <a href="index.html"
+                                class="block px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors whitespace-nowrap">Home
+                                1</a>
+                            <a href="index2.html"
+                                class="block px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors whitespace-nowrap">Home
+                                2</a>
+                        </div>
+                    </div>
+                    <a href="services.html" class="hover:text-secondary transition-colors">Services</a>
+                    <a href="about.html" class="hover:text-secondary transition-colors">About</a>
+                    <a href="case-studies.html" class="hover:text-secondary transition-colors whitespace-nowrap">Case
+                        Studies</a>
+                    <a href="pricing.html" class="hover:text-secondary transition-colors">Pricing</a>
+                    <a href="contact.html" class="hover:text-secondary transition-colors">Contact</a>
+                    <div class="relative">
+                        <button type="button"
+                            class="nav-dropdown-toggle inline-flex items-center gap-2 hover:text-secondary transition-colors"
+                            data-dropdown="dashboard-dropdown">
+                            Dashboard <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div id="dashboard-dropdown"
+                            class="nav-dropdown-menu hidden absolute top-full left-0 mt-3 w-52 rounded-lg bg-white dark:bg-primary border border-gray-200 dark:border-gray-700 shadow-xl p-2">
+                            <a href="user-dashboard.html"
+                                class="block px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors whitespace-nowrap">User
+                                Dashboard</a>
+                            <a href="admin-dashboard.html"
+                                class="block px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors whitespace-nowrap">Admin
+                                Dashboard</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side Buttons -->
+                <div class="hidden xl:flex items-center gap-4 ms-8">
+                    <!-- RTL/LTR Toggle -->
+                    <button id="rtl-toggle"
+                        class="p-2 h-10 w-12 rounded-lg glass-modern hover:bg-white/20 transition-all font-bold text-sm tracking-tighter"
+                        title="Switch to RTL" aria-label="Toggle RTL/LTR">
+                        RTL
+                    </button>
+
+                    <a href="login.html"
+                        class="px-6 py-2 rounded-lg border-2 border-secondary text-secondary hover:bg-secondary hover:text-white transition-all font-semibold">
+                        Login
+                    </a>
+                    <a href="contact.html"
+                        class="px-6 py-2 rounded-lg bg-gradient-to-r from-secondary to-accent text-white hover:shadow-lg hover:shadow-secondary/50 transition-all font-semibold transform hover:scale-105 whitespace-nowrap">Get
+                        Started</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="menu-btn"
+                    class="xl:hidden p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition-all">
+                    <div class="w-6 h-5 relative">
+                        <span class="bar absolute w-full h-0.5 bg-current top-0 left-0 transition-all"></span>
+                        <span class="bar absolute w-full h-0.5 bg-current top-1/2 left-0 transition-all"></span>
+                        <span class="bar absolute w-full h-0.5 bg-current bottom-0 left-0 transition-all"></span>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="hidden xl:hidden bg-white dark:bg-primary border-t border-gray-200 dark:border-gray-800">
+            <div class="px-4 py-4 space-y-4">
+                <details class="group">
+                    <summary
+                        class="list-none flex items-center justify-between cursor-pointer text-secondary font-semibold">
+                        Home
+                        <i class="fas fa-chevron-down text-xs"></i>
+                    </summary>
+                    <div class="mt-2 ml-4 space-y-2">
+                        <a href="index.html" class="block hover:text-secondary">Home 1</a>
+                        <a href="index2.html" class="block hover:text-secondary">Home 2</a>
+                    </div>
+                </details>
+                <a href="services.html" class="block hover:text-secondary">Services</a>
+                <a href="about.html" class="block hover:text-secondary">About</a>
+                <a href="case-studies.html" class="block hover:text-secondary">Case Studies</a>
+                <a href="pricing.html" class="block hover:text-secondary">Pricing</a>
+                <a href="contact.html" class="block hover:text-secondary">Contact</a>
+                <details class="group">
+                    <summary class="list-none flex items-center justify-between cursor-pointer hover:text-secondary">
+                        Dashboard
+                        <i class="fas fa-chevron-down text-xs"></i>
+                    </summary>
+                    <div class="mt-2 ml-4 space-y-2">
+                        <a href="user-dashboard.html" class="block hover:text-secondary">User Dashboard</a>
+                        <a href="admin-dashboard.html" class="block hover:text-secondary">Admin Dashboard</a>
+                    </div>
+                </details>
+                <div class="pt-4 border-t border-gray-200 dark:border-gray-800 space-y-3">
+                    <button id="rtl-toggle-mobile" class="w-full p-3 rounded-xl glass-modern text-center font-bold">
+                        RTL/LTR Mode
+                    </button>
+                    <a href="login.html"
+                        class="block w-full px-6 py-2 rounded-lg border-2 border-secondary text-secondary text-center">Login</a>
+                    <a href="contact.html"
+                        class="block w-full px-6 py-2 rounded-lg bg-gradient-to-r from-secondary to-accent text-white text-center whitespace-nowrap">Get
+                        Started</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen overflow-hidden pt-24 bg-cover bg-center bg-no-repeat hero-section"
+        style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&h=1080&fit=crop');">
+        <div class="absolute inset-0 bg-primary/80 backdrop-blur-sm"></div>
+        <!-- Animated Background Particles -->
+        <canvas id="hero-particles" class="absolute inset-0"></canvas>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Left Content -->
+                <div class="text-center lg:text-left animate-on-scroll text-white">
+                    <h1 class="text-5xl lg:text-8xl font-extrabold mb-6 leading-tight tracking-tighter">
+                        Boost Your
+                        <span
+                            class="block bg-gradient-to-r from-secondary to-accent bg-clip-text text-transparent animate-gradient">Website
+                            Visibility</span>
+                    </h1>
+                    <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto lg:mx-0">
+                        Drive organic traffic, increase visibility, and dominate search results with our professional
+                        SEO strategies. Get measurable results in 90 days or less.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="contact.html"
+                            class="px-8 py-4 rounded-xl bg-gradient-to-r from-secondary to-accent text-white font-semibold text-lg hover:shadow-2xl hover:shadow-secondary/50 transition-all btn-magnetic hero-glow">
+                            <i class="fas fa-rocket me-2"></i> Get Started Free
+                        </a>
+                        <a href="#audit"
+                            class="px-8 py-4 rounded-xl glass-card text-white font-semibold text-lg hover:bg-white/20 transition-all border-2 border-white/30 btn-magnetic">
+                            <i class="fas fa-search me-2"></i> Free Audit Now
+                        </a>
+                    </div>
+
+                    <!-- Trust Badges -->
+                    <div class="mt-12 grid grid-cols-3 gap-6">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-secondary">500+</div>
+                            <div class="text-sm text-gray-400">Happy Clients</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-accent">98%</div>
+                            <div class="text-sm text-gray-400">Success Rate</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-secondary">10x</div>
+                            <div class="text-sm text-gray-400">ROI Average</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Content - Hero Image/Illustration -->
+                <div class="relative floating block mt-8 lg:mt-0">
+                    <div class="relative w-full aspect-square max-w-sm sm:max-w-md lg:max-w-lg mx-auto">
+                        <!-- Glassmorphism Card -->
+                        <div class="absolute inset-0 glass-card rounded-3xl p-4 sm:p-6 lg:p-8 transform rotate-6"></div>
+                        <div class="absolute inset-0 glass-card rounded-3xl p-4 sm:p-6 lg:p-8 transform -rotate-3">
+                        </div>
+                        <div
+                            class="relative glass-card rounded-3xl p-4 sm:p-6 lg:p-8 bg-gradient-to-br from-secondary/20 to-accent/20">
+                            <div class="bg-white dark:bg-primary rounded-2xl p-4 sm:p-5 lg:p-6 h-full">
+                                <div class="space-y-4">
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center space-x-3">
+                                            <div
+                                                class="w-10 h-10 sm:w-12 sm:h-12 bg-green-500 rounded-full flex items-center justify-center">
+                                                <i class="fas fa-arrow-up text-white"></i>
+                                            </div>
+                                            <div>
+                                                <div class="font-semibold text-sm sm:text-base">Traffic Growth</div>
+                                                <div class="text-sm text-gray-500">Last 30 days</div>
+                                            </div>
+                                        </div>
+                                        <div class="text-xl sm:text-2xl font-bold text-secondary">+247%</div>
+                                    </div>
+
+                                    <!-- Chart Placeholder -->
+                                    <div
+                                        class="h-32 sm:h-40 bg-gradient-to-t from-secondary/20 to-accent/20 rounded-xl flex items-end justify-around p-3 sm:p-4 gap-2">
+                                        <div class="w-5 sm:w-8 bg-secondary/40 h-12 sm:h-16 rounded-t"></div>
+                                        <div class="w-5 sm:w-8 bg-secondary/60 h-20 sm:h-24 rounded-t"></div>
+                                        <div class="w-5 sm:w-8 bg-secondary/50 h-16 sm:h-20 rounded-t"></div>
+                                        <div class="w-5 sm:w-8 bg-secondary/70 h-24 sm:h-32 rounded-t"></div>
+                                        <div class="w-5 sm:w-8 bg-secondary h-32 sm:h-40 rounded-t"></div>
+                                    </div>
+
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div class="p-4 bg-green-50 dark:bg-green-900/20 rounded-xl">
+                                            <div class="text-xl sm:text-2xl font-bold text-secondary">1.2M</div>
+                                            <div class="text-xs text-gray-600 dark:text-gray-400">Organic Visits</div>
+                                        </div>
+                                        <div class="p-4 bg-cyan-50 dark:bg-cyan-900/20 rounded-xl">
+                                            <div class="text-xl sm:text-2xl font-bold text-accent">Top 3</div>
+                                            <div class="text-xs text-gray-600 dark:text-gray-400">Avg. Position</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Preview Section -->
+    <section class="py-20 bg-white dark:bg-primary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-4xl lg:text-5xl font-bold mb-4">
+                    Our <span class="text-secondary">SEO Services</span>
+                </h2>
+                <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+                    Comprehensive SEO solutions tailored to your business needs
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Card 1 -->
+                <div
+                    class="p-8 rounded-3xl bg-gray-50 dark:bg-gray-800/50 shadow-xl animate-on-scroll hover-lift border border-gray-100 dark:border-gray-700/50 card-shine h-full flex flex-col">
+                    <div
+                        class="w-70 h-40 bg-secondary/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-white/20">
+                        <img src="https://tse1.mm.bing.net/th/id/OIP.vwoagL1qoar556HZDGHcrAHaEc?rs=1&pid=ImgDetMain&o=7&rm=3"
+                            alt="SEO Audits" class="w-70 h-40" />
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 group-hover:text-white">On-Page SEO</h3>
+                    <p class="text-gray-600 dark:text-gray-400 group-hover:text-white/90">Optimize your website content
+                        and structure for better rankings.</p>
+                    <div class="mt-auto flex items-center text-secondary group-hover:text-white font-semibold">
+                        Learn More <i
+                            class="fas fa-arrow-right ms-2 group-hover:translate-x-2 transition-transform"></i>
+                    </div>
+                </div>
+
+                <!-- Service Card 2 -->
+                <div
+                    class="p-8 rounded-3xl bg-gray-50 dark:bg-gray-800/50 shadow-xl animate-on-scroll hover-lift border border-gray-100 dark:border-gray-700/50 card-shine h-full flex flex-col">
+                    <div
+                        class="w-70 h-40 bg-accent/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-white/20">
+                        <img src="https://uploads-ssl.webflow.com/63c7737411d6b5810ea9a9d1/6436a59c52823e4b0065b6d4_Technical-SEO-pg-2-1-1024x657.png"
+                            alt="SEO Audits" class="w-70 h-40" />
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 group-hover:text-white">Off-Page SEO</h3>
+                    <p class="text-gray-600 dark:text-gray-400 group-hover:text-white/90">Build high-quality backlinks
+                        to boost your domain authority.</p>
+                    <div class="mt-auto flex items-center text-accent group-hover:text-white font-semibold">
+                        Learn More <i
+                            class="fas fa-arrow-right ms-2 group-hover:translate-x-2 transition-transform"></i>
+                    </div>
+                </div>
+
+                <!-- Service Card 3 -->
+                <div
+                    class="p-8 rounded-3xl bg-gray-50 dark:bg-gray-800/50 shadow-xl animate-on-scroll hover-lift border border-gray-100 dark:border-gray-700/50 card-shine h-full flex flex-col">
+                    <div
+                        class="w-70 h-40 bg-secondary/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-white/20">
+                        <img src="https://tse1.mm.bing.net/th/id/OIP.Y0Z2F8w68DeFy6PNYBtu5QHaE8?rs=1&pid=ImgDetMain&o=7&rm=3"
+                            alt="SEO Audits" class="w-70 h-40" />
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 group-hover:text-white">Technical SEO</h3>
+                    <p class="text-gray-600 dark:text-gray-400 group-hover:text-white/90">Improve site speed, mobile
+                        optimization, and crawlability.</p>
+                    <div class="mt-auto flex items-center text-secondary group-hover:text-white font-semibold">
+                        Learn More <i
+                            class="fas fa-arrow-right ms-2 group-hover:translate-x-2 transition-transform"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="services.html"
+                    class="inline-block px-8 py-4 rounded-xl border-2 border-secondary text-secondary hover:bg-secondary hover:text-white transition-all font-semibold">
+                    View All Services
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="py-20 gradient-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-14 animate-on-scroll">
+                <h2 class="text-4xl lg:text-5xl font-bold mb-4 text-white">
+                    Why Brands Choose <span class="text-secondary">SEO Pro</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    We combine strategy, execution, and transparent reporting so your team always knows what is
+                    happening and why it works.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="p-8 glass-card rounded-2xl animate-on-scroll">
+                    <div class="w-14 h-14 rounded-xl bg-secondary/20 flex items-center justify-center mb-5">
+                        <i class="fas fa-bullseye text-2xl text-secondary"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3">Custom Growth Roadmap</h3>
+                    <p class="text-gray-300">
+                        Every campaign starts with a tailored plan based on your goals, competition, and current site
+                        condition.
+                    </p>
+                </div>
+
+                <div class="p-8 glass-card rounded-2xl animate-on-scroll">
+                    <div class="w-14 h-14 rounded-xl bg-accent/20 flex items-center justify-center mb-5">
+                        <i class="fas fa-chart-line text-2xl text-accent"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3">Performance-First Execution</h3>
+                    <p class="text-gray-300">
+                        We focus on technical SEO, content optimization, and authority building that directly impact
+                        rankings and leads.
+                    </p>
+                </div>
+
+                <div class="p-8 glass-card rounded-2xl animate-on-scroll md:col-span-2 lg:col-span-1">
+                    <div class="w-14 h-14 rounded-xl bg-secondary/20 flex items-center justify-center mb-5">
+                        <i class="fas fa-eye text-2xl text-secondary"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3">Transparent Monthly Reports</h3>
+                    <p class="text-gray-300">
+                        Clear progress updates, keyword movement, and action items so you can track ROI with confidence.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-white dark:bg-primary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-4xl lg:text-5xl font-bold mb-4">
+                    What Our <span class="text-accent">Clients Say</span>
+                </h2>
+                <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+                    Real results from real businesses
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="p-8 rounded-2xl bg-gray-50 dark:bg-gray-800 shadow-lg animate-on-scroll">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 text-xl">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300 mb-6 italic">
+                        "SEO Pro transformed our online presence. We went from page 5 to top 3 positions in just 3
+                        months. Our organic traffic increased by 300%!"
+                    </p>
+                    <div class="flex items-center">
+                        <div
+                            class="w-12 h-12 bg-gradient-to-br from-secondary to-accent rounded-full flex items-center justify-center text-white font-bold text-xl">
+                            JD
+                        </div>
+                        <div class="ms-4">
+                            <div class="font-semibold">John Doe</div>
+                            <div class="text-sm text-gray-500">CEO, TechCorp</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="p-8 rounded-2xl bg-gray-50 dark:bg-gray-800 shadow-lg animate-on-scroll">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 text-xl">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300 mb-6 italic">
+                        "The best SEO agency we've worked with. Transparent reporting, excellent communication, and most
+                        importantly - real results!"
+                    </p>
+                    <div class="flex items-center">
+                        <div
+                            class="w-12 h-12 bg-gradient-to-br from-accent to-secondary rounded-full flex items-center justify-center text-white font-bold text-xl">
+                            SM
+                        </div>
+                        <div class="ms-4">
+                            <div class="font-semibold">Sarah Miller</div>
+                            <div class="text-sm text-gray-500">Marketing Director, EshopPlus</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="p-8 rounded-2xl bg-gray-50 dark:bg-gray-800 shadow-lg animate-on-scroll">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 text-xl">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300 mb-6 italic">
+                        "Our e-commerce sales doubled thanks to their SEO expertise. The ROI has been incredible. Highly
+                        recommend their services!"
+                    </p>
+                    <div class="flex items-center">
+                        <div
+                            class="w-12 h-12 bg-gradient-to-br from-secondary to-accent rounded-full flex items-center justify-center text-white font-bold text-xl">
+                            MJ
+                        </div>
+                        <div class="ms-4">
+                            <div class="font-semibold">Michael Johnson</div>
+                            <div class="text-sm text-gray-500">Founder, RetailHub</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call-to-Action Banner -->
+    <section class="py-20 gradient-bg">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="glass-card rounded-3xl p-12 animate-on-scroll">
+                <h2 class="text-4xl lg:text-5xl font-bold mb-6 text-white">
+                    Ready to <span class="text-secondary">Dominate</span> Search Results?
+                </h2>
+                <p class="text-xl text-white mb-8 max-w-2xl mx-auto">
+                    Get your free SEO audit worth $500 and discover how to improve your rankings today.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="contact.html"
+                        class="px-8 py-4 rounded-xl bg-gradient-to-r from-secondary to-accent text-white font-semibold text-lg hover:shadow-2xl hover:shadow-secondary/50 transition-all transform hover:scale-105">
+                        Get Your Free Audit
+                    </a>
+                    <a href="tel:+1234567890"
+                        class="px-8 py-4 rounded-xl glass-card text-white font-semibold text-lg hover:bg-white/20 transition-all border-2 border-white/30">
+                        <i class="fas fa-phone me-2"></i> Call Us Now
+                    </a>
+                </div>
+                <p class="mt-6 text-sm text-white/70">No credit card required • Free consultation • No obligations</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <!-- Company Info -->
+                <div>
+                    <div class="flex items-center space-x-2 mb-6">
+                        <div
+                            class="w-10 h-10 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center">
+                            <i class="fas fa-chart-line text-white text-xl"></i>
+                        </div>
+                        <span class="text-2xl font-bold">SEO Pro</span>
+                    </div>
+                    <p class="text-gray-400 mb-6">
+                        Professional SEO services to help your business grow online. Trusted by 500+ companies
+                        worldwide.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-secondary transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-secondary transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-secondary transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-secondary transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="about.html" class="text-gray-400 hover:text-secondary transition-colors">About
+                                Us</a></li>
+                        <li><a href="services.html"
+                                class="text-gray-400 hover:text-secondary transition-colors">Services</a></li>
+                        <li><a href="case-studies.html"
+                                class="text-gray-400 hover:text-secondary transition-colors">Case Studies</a></li>
+                        <li><a href="pricing.html"
+                                class="text-gray-400 hover:text-secondary transition-colors">Pricing</a></li>
+                        <li><a href="contact.html"
+                                class="text-gray-400 hover:text-secondary transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Services</h3>
+                    <ul class="space-y-3">
+                        <li><a href="services.html" class="text-gray-400 hover:text-secondary transition-colors">On-Page
+                                SEO</a></li>
+                        <li><a href="services.html"
+                                class="text-gray-400 hover:text-secondary transition-colors">Off-Page SEO</a></li>
+                        <li><a href="services.html"
+                                class="text-gray-400 hover:text-secondary transition-colors">Technical SEO</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-secondary transition-colors">Local
+                                SEO</a></li>
+                        <li><a href="services.html"
+                                class="text-gray-400 hover:text-secondary transition-colors">E-commerce SEO</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Contact Us</h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-map-marker-alt mt-1"></i>
+                            <span>123 SEO Street, Digital City, DC 12345</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-phone"></i>
+                            <span>+1 (234) 567-890</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-envelope"></i>
+                            <span>hello@seopro.com</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-clock"></i>
+                            <span>Mon - Fri: 9:00 AM - 6:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                    &copy; 2026 SEO Pro. All rights reserved.
+                </p>
+                <div class="flex space-x-6 text-sm">
+                    <a href="#" class="text-gray-400 hover:text-secondary transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-secondary transition-colors">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-secondary transition-colors">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Main JavaScript -->
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Initialize counters when page loads
+        document.addEventListener('DOMContentLoaded', function () {
+            initCounters();
+            setupStickyNavbar();
+        });
+    </script>
+</body>
+
+</html>

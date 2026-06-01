@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - SEO Pro</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta name="description" content="Login to your SEO Pro account">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Emoji Icon Styles -->
+    <link rel="stylesheet" href="assets/css/image-icons.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0f172a',
+                        secondary: '#22c55e',
+                        accent: '#06b6d4'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body { 
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%);
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        [dir="rtl"] { direction: rtl; text-align: right; }
+        
+        /* Floating Labels container */
+        .floating-label { position: relative; }
+        
+        /* Animated Background */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        body, .glass-card, input, button, a {
+            transition: background-color .3s ease, color .3s ease, border-color .3s ease, box-shadow .3s ease;
+        }
+
+        html:not(.dark) body {
+            background: linear-gradient(135deg, #f8fafc 0%, #dbeafe 50%, #f8fafc 100%);
+        }
+
+        html:not(.dark) .glass-card {
+            background: rgba(255, 255, 255, 0.88);
+            border-color: rgba(148, 163, 184, 0.35);
+        }
+
+        html:not(.dark) .text-white {
+            color: #0f172a !important;
+        }
+
+        html:not(.dark) .text-gray-300 {
+            color: #334155 !important;
+        }
+
+        html:not(.dark) .text-gray-400 {
+            color: #475569 !important;
+        }
+
+        html:not(.dark) .bg-white\/10 {
+            background-color: rgba(255, 255, 255, 0.84) !important;
+        }
+
+        html:not(.dark) .border-gray-600 {
+            border-color: rgba(148, 163, 184, 0.6) !important;
+        }
+
+        html:not(.dark) input {
+            color: #0f172a !important;
+        }
+
+        /* Floating label: centered vertically inside inputs, floats above on focus/filled */
+        .floating-label label {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%) scale(1);
+            transform-origin: left top;
+            transition: transform .18s ease, top .18s ease, color .18s ease, background-color .18s ease, padding .18s ease;
+            pointer-events: none;
+            padding: 0 .25rem;
+            color: #94a3b8;
+        }
+
+        .glass-card .floating-label label {
+            background-color: rgba(255,255,255,0.03);
+        }
+
+        html:not(.dark) .glass-card .floating-label label {
+            background-color: rgba(255,255,255,0.88);
+            color: #475569;
+        }
+
+        .floating-label input:focus ~ label,
+        .floating-label input:not(:placeholder-shown) ~ label {
+            top: -0.5rem;
+            transform: translateY(0) scale(0.85);
+            color: #22c55e;
+            padding: 0 .35rem;
+        }
+
+        [dir="rtl"] .floating-label label {
+            left: auto;
+            right: 1rem;
+            transform-origin: right top;
+            text-align: right;
+        }
+
+        /* RTL: move eye toggle button from right to left */
+        [dir="rtl"] .floating-label button[onclick*="togglePassword"] {
+            right: auto;
+            left: 1rem;
+        }
+
+        /* RTL: swap input padding so text doesn't overlap eye icon */
+        [dir="rtl"] .floating-label input[type="password"] {
+            padding-right: 1rem;
+            padding-left: 3rem;
+        }
+
+        /* RTL: fix flex containers in login form */
+        [dir="rtl"] .flex.items-center.justify-between {
+            flex-direction: row-reverse;
+        }
+
+        /* RTL: remember me checkbox spacing */
+        [dir="rtl"] .flex.items-center .ml-2 {
+            margin-left: 0;
+            margin-right: 0.5rem;
+        }
+
+        html:not(.dark) .bg-gradient-to-r.text-white,
+        html:not(.dark) .bg-gradient-to-br.text-white,
+        html:not(.dark) .bg-gradient-to-r .text-white,
+        html:not(.dark) .bg-gradient-to-br .text-white {
+            color: #ffffff !important;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+    
+    <!-- Animated Background Particles -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none">
+        <canvas id="hero-particles"></canvas>
+    </div>
+    
+    <!-- Login Container -->
+    <div class="w-full max-w-md relative z-10">
+        <!-- Logo -->
+        <div class="text-center mb-8">
+            <a href="index.html" class="inline-flex items-center gap-2 transition-transform hover:scale-105" aria-label="Go to home page">
+                <div class="w-12 h-12 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center">
+                    <i class="fas fa-chart-line text-white text-2xl"></i>
+                </div>
+                <span class="text-3xl font-bold bg-gradient-to-r from-secondary to-accent bg-clip-text text-transparent whitespace-nowrap">SEO Pro</span>
+            </a>
+        </div>
+        
+        <!-- Glassmorphism Login Card -->
+        <div class="glass-card rounded-3xl p-8 shadow-2xl animate-on-scroll">
+            <!-- Toggle Buttons -->
+            <div class="flex mb-8 bg-white/10 rounded-xl p-1">
+                <button id="admin-tab" onclick="switchTab('admin')" class="flex-1 py-3 px-4 rounded-lg font-semibold transition-all bg-secondary text-white">
+                    Admin Login
+                </button>
+                <button id="user-tab" onclick="switchTab('user')" class="flex-1 py-3 px-4 rounded-lg font-semibold transition-all text-gray-300 hover:text-white">
+                    User Login
+                </button>
+            </div>
+            
+            <!-- Admin Login Form -->
+            <form id="admin-form" class="space-y-6" onsubmit="handleAdminLogin(event)">
+                <h2 class="text-2xl font-bold text-white text-center mb-6">Welcome Back, Admin!</h2>
+                
+                <div class="floating-label">
+                    <input type="email" id="admin-email" required placeholder=" " 
+                        class="w-full px-4 py-4 rounded-xl border-2 border-gray-600 bg-white/10 text-white focus:border-secondary focus:outline-none transition-colors">
+                    <label for="admin-email" class="absolute left-4 top-4 text-gray-400 transition-all cursor-text">
+                        Email Address
+                    </label>
+                </div>
+                
+                <div class="floating-label relative">
+                    <input type="password" id="admin-password" required placeholder=" " 
+                        class="w-full px-4 py-4 rounded-xl border-2 border-gray-600 bg-white/10 text-white focus:border-secondary focus:outline-none transition-colors">
+                    <label for="admin-password" class="absolute left-4 top-4 text-gray-400 transition-all cursor-text">
+                        Password
+                    </label>
+                    <button type="button" onclick="togglePassword('admin-password', 'admin-eye-icon')" class="absolute right-4 top-4 text-gray-400 hover:text-white transition-colors">
+                        <i id="admin-eye-icon" class="fas fa-eye"></i>
+                    </button>
+                </div>
+                
+                <div class="flex items-center justify-between text-sm">
+                    <label class="flex items-center text-gray-300 cursor-pointer">
+                        <input type="checkbox" class="w-4 h-4 rounded border-gray-600 bg-white/10 text-secondary focus:ring-secondary">
+                        <span class="ml-2">Remember me</span>
+                    </label>
+                    <a href="#" class="text-secondary hover:text-accent transition-colors">Forgot password?</a>
+                </div>
+                
+                <button type="submit" class="w-full px-8 py-4 rounded-xl bg-gradient-to-r from-secondary to-accent text-white font-semibold text-lg hover:shadow-2xl hover:shadow-secondary/50 transition-all transform hover:scale-105">
+                    <i class="fas fa-sign-in-alt mr-2"></i> Login as Admin
+                </button>
+
+                <!-- Social Login Divider -->
+                <div class="relative flex py-2 items-center">
+                    <div class="flex-grow border-t border-gray-600/30"></div>
+                    <span class="flex-shrink mx-4 text-gray-400 text-sm font-medium">Or sign in with</span>
+                    <div class="flex-grow border-t border-gray-600/30"></div>
+                </div>
+
+                <!-- Social Login Buttons -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                    <button type="button" onclick="handleSocialLogin('Google')" 
+                        class="flex items-center justify-center py-3 rounded-xl border border-gray-600 bg-white/10 text-white hover:text-secondary hover:border-secondary transition-all transform hover:scale-105 active:scale-95" 
+                        title="Sign in with Google">
+                        <i class="fa-google text-xl"></i>
+                    </button>
+                    <button type="button" onclick="handleSocialLogin('Facebook')" 
+                        class="flex items-center justify-center py-3 rounded-xl border border-gray-600 bg-white/10 text-white hover:text-secondary hover:border-secondary transition-all transform hover:scale-105 active:scale-95" 
+                        title="Sign in with Facebook">
+                        <i class="fa-facebook text-xl"></i>
+                    </button>
+                    <button type="button" onclick="handleSocialLogin('LinkedIn')" 
+                        class="flex items-center justify-center py-3 rounded-xl border border-gray-600 bg-white/10 text-white hover:text-secondary hover:border-secondary transition-all transform hover:scale-105 active:scale-95" 
+                        title="Sign in with LinkedIn">
+                        <i class="fa-linkedin text-xl"></i>
+                    </button>
+                    <button type="button" onclick="handleSocialLogin('Apple')" 
+                        class="flex items-center justify-center py-3 rounded-xl border border-gray-600 bg-white/10 text-white hover:text-secondary hover:border-secondary transition-all transform hover:scale-105 active:scale-95" 
+                        title="Sign in with Apple">
+                        <i class="fa-apple text-xl"></i>
+                    </button>
+                </div>
+
+                <p class="text-center text-gray-400 text-sm">
+                    Don't have an account?
+                    <a href="register.html" class="text-secondary hover:text-accent transition-colors font-semibold">Sign Up</a>
+                </p>
+            </form>
+            
+            <!-- User Login Form (Hidden by default) -->
+            <form id="user-form" class="space-y-6 hidden" onsubmit="handleUserLogin(event)">
+                <h2 class="text-2xl font-bold text-white text-center mb-6">Welcome Back, User!</h2>
+                
+                <div class="floating-label">
+                    <input type="email" id="user-email" required placeholder=" " 
+                        class="w-full px-4 py-4 rounded-xl border-2 border-gray-600 bg-white/10 text-white focus:border-accent focus:outline-none transition-colors">
+                    <label for="user-email" class="absolute left-4 top-4 text-gray-400 transition-all cursor-text">
+                        Email Address
+                    </label>
+                </div>
+                
+                <div class="floating-label relative">
+                    <input type="password" id="user-password" required placeholder=" " 
+                        class="w-full px-4 py-4 rounded-xl border-2 border-gray-600 bg-white/10 text-white focus:border-accent focus:outline-none transition-colors">
+                    <label for="user-password" class="absolute left-4 top-4 text-gray-400 transition-all cursor-text">
+                        Password
+                    </label>
+                    <button type="button" onclick="togglePassword('user-password', 'user-eye-icon')" class="absolute right-4 top-4 text-gray-400 hover:text-white transition-colors">
+                        <i id="user-eye-icon" class="fas fa-eye"></i>
+                    </button>
+                </div>
+                
+                <div class="flex items-center justify-between text-sm">
+                    <label class="flex items-center text-gray-300 cursor-pointer">
+                        <input type="checkbox" class="w-4 h-4 rounded border-gray-600 bg-white/10 text-accent focus:ring-accent">
+                        <span class="ml-2">Remember me</span>
+                    </label>
+                    <a href="#" class="text-accent hover:text-secondary transition-colors">Forgot password?</a>
+                </div>
+                
+                <button type="submit" class="w-full px-8 py-4 rounded-xl bg-gradient-to-r from-accent to-secondary text-white font-semibold text-lg hover:shadow-2xl hover:shadow-accent/50 transition-all transform hover:scale-105">
+                    <i class="fas fa-sign-in-alt mr-2"></i> Login as User
+                </button>
+                
+                <!-- Social Login Divider -->
+                <div class="relative flex py-2 items-center">
+                    <div class="flex-grow border-t border-gray-600/30"></div>
+                    <span class="flex-shrink mx-4 text-gray-400 text-sm font-medium">Or sign in with</span>
+                    <div class="flex-grow border-t border-gray-600/30"></div>
+                </div>
+
+                <!-- Social Login Buttons -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                    <button type="button" onclick="handleSocialLogin('Google')" 
+                        class="flex items-center justify-center py-3 rounded-xl border border-gray-600 bg-white/10 text-white hover:text-accent hover:border-accent transition-all transform hover:scale-105 active:scale-95" 
+                        title="Sign in with Google">
+                        <i class="fa-google text-xl"></i>
+                    </button>
+                    <button type="button" onclick="handleSocialLogin('Facebook')" 
+                        class="flex items-center justify-center py-3 rounded-xl border border-gray-600 bg-white/10 text-white hover:text-accent hover:border-accent transition-all transform hover:scale-105 active:scale-95" 
+                        title="Sign in with Facebook">
+                        <i class="fa-facebook text-xl"></i>
+                    </button>
+                    <button type="button" onclick="handleSocialLogin('LinkedIn')" 
+                        class="flex items-center justify-center py-3 rounded-xl border border-gray-600 bg-white/10 text-white hover:text-accent hover:border-accent transition-all transform hover:scale-105 active:scale-95" 
+                        title="Sign in with LinkedIn">
+                        <i class="fa-linkedin text-xl"></i>
+                    </button>
+                    <button type="button" onclick="handleSocialLogin('Apple')" 
+                        class="flex items-center justify-center py-3 rounded-xl border border-gray-600 bg-white/10 text-white hover:text-accent hover:border-accent transition-all transform hover:scale-105 active:scale-95" 
+                        title="Sign in with Apple">
+                        <i class="fa-apple text-xl"></i>
+                    </button>
+                </div>
+                
+                <p class="text-center text-gray-400 text-sm">
+                    Don't have an account?
+                    <a href="register.html" class="text-secondary hover:text-accent transition-colors font-semibold">Sign Up</a>
+                </p>
+            </form>
+        </div>
+    </div>
+    
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Tab Switching
+        function switchTab(type) {
+            const adminForm = document.getElementById('admin-form');
+            const userForm = document.getElementById('user-form');
+            const adminTab = document.getElementById('admin-tab');
+            const userTab = document.getElementById('user-tab');
+            
+            if (type === 'admin') {
+                adminForm.classList.remove('hidden');
+                userForm.classList.add('hidden');
+                adminTab.classList.add('bg-secondary', 'text-white');
+                adminTab.classList.remove('text-gray-300', 'hover:text-white');
+                userTab.classList.remove('bg-secondary', 'text-white');
+                userTab.classList.add('text-gray-300', 'hover:text-white');
+            } else {
+                userForm.classList.remove('hidden');
+                adminForm.classList.add('hidden');
+                userTab.classList.add('bg-secondary', 'text-white');
+                userTab.classList.remove('text-gray-300', 'hover:text-white');
+                adminTab.classList.remove('bg-secondary', 'text-white');
+                adminTab.classList.add('text-gray-300', 'hover:text-white');
+            }
+        }
+        
+        // Password Toggle
+        function togglePassword(inputId, iconId) {
+            const input = document.getElementById(inputId);
+            const icon = document.getElementById(iconId);
+            
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                input.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        }
+        
+        // Admin Login Handler
+        function handleAdminLogin(e) {
+            e.preventDefault();
+            const email = document.getElementById('admin-email').value;
+            const password = document.getElementById('admin-password').value;
+            
+            // Simple validation (in real app, this would be server-side)
+            if (email && password) {
+                // Simulate successful login
+                alert('Admin login successful! Redirecting to dashboard...');
+                window.location.href = 'admin-dashboard.html';
+            } else {
+                alert('Please fill in all fields');
+            }
+        }
+        
+        // User Login Handler
+        function handleUserLogin(e) {
+            e.preventDefault();
+            const email = document.getElementById('user-email').value;
+            const password = document.getElementById('user-password').value;
+            
+            // Simple validation
+            if (email && password) {
+                // Simulate successful login
+                alert('User login successful! Redirecting to dashboard...');
+                window.location.href = 'user-dashboard.html';
+            } else {
+                alert('Please fill in all fields');
+            }
+        }
+        
+        // Social Login Handler
+        function handleSocialLogin(provider) {
+            alert(provider + ' login button clicked! In a production app, this would redirect to ' + provider + ' authentication.');
+        }
+        
+        // Initialize animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add animation classes
+            document.querySelectorAll('.animate-on-scroll').forEach(el => {
+                el.classList.add('transition-all', 'duration-700');
+            });
+        });
+    </script>
+</body>
+</html>
